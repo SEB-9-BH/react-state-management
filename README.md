@@ -1,4 +1,4 @@
-# ![[tktk Module Name]](./assets/tktk-hero.png)
+# ![React State Management](./assets/tktk-hero.png)
 
 ## About
 
@@ -6,25 +6,19 @@ tktk Write a short but descriptive summary of the content in this module.
 
 ## Prerequisites
 
-- tktk
-- tktk
-- tktk
+- Intro to React
+- Building Your First React App
 
 ## Content
 
-| Lesson | Video Time | Video | Skills |
-| ------ |:----------:|:-----:| ------ |
-| [Setup](./setup/README.md)                               | -- | -- | Setting up the development environment |
-| [tktk Microlesson Name](./tktk-microlesson-01/README.md) | -- | -- | tktk skills covered                    |
-| [tktk Microlesson Name](./tktk-microlesson-02/README.md) | -- | -- | tktk skills covered                    |
-| **Total content**                                        | -- | -- |                                        |
+| Lesson | Skills |
+| ------ | ------ |
+| [Setup](./setup/README.md)                               | Setting up the development environment |
+| [Concepts](./concepts/README.md)                               | Describe the importance of state management |
+| [The useState Hook](./the-useState-hook/README.md) | Implement stateful components                    |
+| [Event Listener Syntax](./event-listener-syntax/README.md) | Implement stateful components
+| [Updating State](./updating-state/README.md) | Use the setState handler                    |
 
-## Level Up content
-
-| Lesson | Video Time | Video | Skills |
-| ------ |:----------:|:-----:| ------ |
-| [tktk Level Up Microlesson Name](./tktk-microlesson-03/README.md) | -- | -- | tktk skills covered |
-| **Total Level Up content**                                        | -- | -- |                     |
 
 ## References
 

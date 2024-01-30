@@ -8,7 +8,6 @@ tktk Write a short but descriptive summary of the content in this module.
 
 - Intro to React
 - Building Your First React App
-- User Events in React
 
 ## Content
 
@@ -17,6 +16,7 @@ tktk Write a short but descriptive summary of the content in this module.
 | [Setup](./setup/README.md)                               | Setting up the development environment |
 | [Concepts](./concepts/README.md)                               | Describe the importance of state management |
 | [The useState Hook](./the-useState-hook/README.md) | Implement stateful components                    |
+| [Event Listener Syntax](./event-listener-syntax/README.md) | Implement stateful components
 | [Updating State](./updating-state/README.md) | Use the setState handler                    |
 
 

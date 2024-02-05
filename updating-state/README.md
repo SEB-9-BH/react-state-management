@@ -4,6 +4,8 @@
 
 ## Updating State
 
+<!-- In practice, since intro to concept is under useState Hook -->
+
 In the last lesson, we created two buttons and attached onClick event handlers to them. However, one thing was conspicuously absent in a lecture about state management: state!
 
 So, next let's talk about how state fits into all of this. 
@@ -39,8 +41,12 @@ If the user clicks on the `<button>` with `id='light'`, then `setMode('light')` 
 <!-- This is also where you could demo the immutability of state by giving a nice warning section in the vein of "THIS WONT WORK AND HERES WHY" after a code snippet with `valueInState = newValue`.
 
 [tktk mutability] -->
+<!-- From Concepts -->
+<!-- State in React is immutable and should not be changed directly. React's state being immutable is important for a couple of reasons:
 
-
+Predictable Updates: Knows when a component needs to re-render
+Pure Components: A component preduces the same output given the same input
+If the state is changed directly, React will not know that the state has changed and will not re-render the component. So our Pure Components will not be pure and predictable updates will not be predictable. Simple said DO NOT CHANGE STATE DIRECTLY. -->
 
 
 

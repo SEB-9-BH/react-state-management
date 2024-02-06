@@ -1,19 +1,22 @@
-# ![React State Management - tktk Microlesson Name](./assets/hero.png)
+# ![React State Management - Updating State](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to tktk
+**Learning objective:** By the end of this lesson, students will be able to update state in a React component. 
 
 ## Updating State
-
-<!-- In practice, since intro to concept is under useState Hook -->
 
 In the last lesson, we created two buttons and attached onClick event handlers to them. However, one thing was conspicuously absent in a lecture about state management: state!
 
 So, next let's talk about how state fits into all of this. 
 
-First, let's make use of a new `useState` hook: 
+First, let's make use of a new `useState` hook. Add the following to `App.jsx`:
 
 ```jsx
-const [mode, setMode] = useState('light')
+const App = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  // Add mode state: 
+  const [mode, setMode] = useState('light')
+  
+}
 ```
 We'll create new state named `mode`, and give it an initial value of `'light'`. 
 
@@ -43,6 +46,7 @@ If the user clicks on the `<button>` with `id='light'`, then `setMode('light')` 
 Recall that State in React is immutable, and should not be changed directly. An example of attempting to directly mutate state would look something like this: 
 
 ```jsx
+// Don't do this!! 
 const handleMode = (event) => {
   if (event.target.id === 'dark') {
     mode = 'dark'
@@ -60,114 +64,52 @@ We mentioned above that React knows to re-render after a `setState` function run
 With that out of the way, we can use our state to set the styling of our app! In our `App.css` file, we have some simple styling for both `light` and `dark` classes. If we create a container `<div>` for our buttons, we can pass our `mode` state as the class name: 
 
 ```jsx
+// src/App.js
+import { useState } from 'react';
+
 const App = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const [mode, setMode] = useState('light');
 
   const handleMode = (event) => {
     if (event.target.id === 'dark') {
-      setMode('dark');
-    };
+      console.log('Dark Mode!')
+    }
     if (event.target.id === 'light') {
-      setMode('light');
-    };
-  };
+      console.log('Light Mode!')
+    }
+  }
 
   return (
-    <div className={mode}>
-      <button id='dark' onClick={handleMode}>Dark Mode</button>
-      <button id='light' onClick={handleMode}>Light Mode</button>
-    </div>
+      <>
+        <div className={isDarkMode ? 'dark': 'light'}>  
+            <h1>Hello world!</h1>
+        </div>
+        <div className={mode}>
+            <button id='dark' onClick={handleMode}>Dark Mode</button>
+            <button id='light' onClick={handleMode}>Light Mode</button>
+        </div>
+      </>
   );
+}
 
-export default App
-};
+export default App;
 ```
 
 > Remember that we camelCase attributes in JSX! 
 
 The initial state of `mode` is 'light', so when the page initially renders our 'light' class styling will be applied. Try clicking on the 'Dark Mode' button, and see what happens! 
 
-## Building a toggle
-
-Let's explore another possibility for implementing a dark mode in our App.
-First, we'll make some new state - this time, rather than keeping track of a specific string, our state will be a Boolean that keeps track of if the app should be in dark mode or not. As a result, we'll call it `isDarkMode`, and give it an initial value of `false`: 
-
-```jsx
-const App = () => {
-  const [mode, setMode] = useState('light');
-  // Add the following: 
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const handleMode = (event) => {
-    if (event.target.id === 'dark') {
-      setMode('dark');
-    }
-    if (event.target.id === 'light') {
-      setMode('light');
-    }
-  }
-
-  return (
-    <div className={mode}>
-      <button id='dark' onClick={handleMode}>Dark Mode</button>
-      <button id='light' onClick={handleMode}>Light Mode</button>
-    </div>
-  );
-}
-
-export default App
-```
-
-Next, we'll need a button that the user can click to toggle our state.
-You'll notice something new in the event handler `handleDarkMode`. We can pass `setState` a function - this function will automatically receive the previous state as an argument. As a result, we can update state based on this previous state, which is useful when creating a toggle: 
-
-```jsx
-const App = () => {
-  const [mode, setMode] = useState('light');
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const handleDarkMode = () => {
-    setIsDarkMode(prevState => !prevState);
-  }
-
-  const handleMode = (event) => {
-    if (event.target.id === 'dark') {
-      setMode('dark');
-    }
-    if (event.target.id === 'light') {
-      setMode('light');
-    }
-  }
-
-  return (
-    <>
-      <div className={isDarkMode && 'dark'}>  
-        <button onClick={handleDarkMode}>Toggle Dark Mode</button>
-      </div>
-
-      <div className={mode}>
-        <button id='dark' onClick={handleMode}>Dark Mode</button>
-        <button id='light' onClick={handleMode}>Light Mode</button>
-      </div>
-    </>
-  );
-}
-
-export default App
-```
-
-If `isDarkMode` is true, then we want the className to be 'dark'. As our 'light' mode is realistically just the default CSS styling, we only need to apply a class name in the instance that we need to apply 'dark' styling. We'll also need to add a JSX fragment (<></>) because we're now returning multiple elements. 
-
-There you have it, two different ways to use state to implement a React-ive light and dark mode! 
-
 
 ## Working with Arrays
 
-One last thing! Let's take a look at how we can maintain immutability when working with arrays.
+One last thing! We mentioned in the useState lesson that arrays of data will be a very common form of state when working with React applications. Let's take a look at how we can maintain immutability when working with arrays.
 
 In the below `ExampleComponent` we have `cats` state, which is initialized as an array of objects. We also have a button which, when clicked, will invoke the `addCat` event handler. To avoid building an entire form for the purposes of demonstration, we'll just imagine that the object being passed to `addCat` is incoming form data, instead of being hard-coded. 
 
 ```jsx
+import { useState } from 'react';
+
 function ExampleComponent = () => {
   const [cats, setCats] = useState([
     { name: 'Myshka', breed: 'Ragdoll' },

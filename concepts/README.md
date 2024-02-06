@@ -30,10 +30,13 @@ Taking this back to our oven example, when the user changes the oven's temperatu
 
 State in React is immutable and should not be changed directly. React's state being immutable is essential for a couple of reasons:
 
-- Predictable Updates: React knows when a component needs to re-render
-- Pure Components: a component produces the same output given the same input
+- Predictable Updates: Immutable state guarantees that React knows when a component needs to re-render. You'll see this in action later in this lesson.
 
-If the state is changed directly, React will not know that the state has changed and will not re-render the component. So, our Pure Components will not be pure, and predictable updates will not be predictable. Simply said **DO NOT CHANGE STATE DIRECTLY**.
+- Pure Components: A pure functional component is one that always produces the same output given the same input, and doesn't rely on or modify external data. This allows for a great deal of code consistency and component reusability.
+
+If the state is changed directly, React will not know that the state has changed and will not re-render the component. Going back to our oven example, this could mean that your oven has actually been turned off, while the user interface is still showing 425 degrees. As you can imagine, this would be a pretty bad user experience.
+
+Simply said **DO NOT CHANGE STATE DIRECTLY**.
 
 Instead, there are built-in hooks from React that allow us to change state. The most common method for changing state is included in the `useState` hook, for example.
 

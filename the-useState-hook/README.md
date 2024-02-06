@@ -1,4 +1,4 @@
-# ![[tktk Module Name] - The `useState` Hook](./assets/hero.png)
+# ![React State Management - The `useState` Hook](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to use the `useState` hook to create stateful components.
 

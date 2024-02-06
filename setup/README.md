@@ -1,4 +1,4 @@
-# ![[tktk Module Name] - Setup](./assets/hero.png)
+# ![React State Management - Setup](./assets/hero.png)
 
 ## Setup
 

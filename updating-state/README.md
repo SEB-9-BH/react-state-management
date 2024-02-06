@@ -1,4 +1,4 @@
-# ![[tktk Module Name] - tktk Microlesson Name](./assets/hero.png)
+# ![React State Management - tktk Microlesson Name](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
@@ -161,15 +161,9 @@ If `isDarkMode` is true, then we want the className to be 'dark'. As our 'light'
 There you have it, two different ways to use state to implement a React-ive light and dark mode! 
 
 
-
-
-
-
-
-
 ## Working with Arrays
 
-Let's take a look at how we can maintain immutability when working with arrays.
+One last thing! Let's take a look at how we can maintain immutability when working with arrays.
 
 In the below `ExampleComponent` we have `cats` state, which is initialized as an array of objects. We also have a button which, when clicked, will invoke the `addCat` event handler. To avoid building an entire form for the purposes of demonstration, we'll just imagine that the object being passed to `addCat` is incoming form data, instead of being hard-coded. 
 

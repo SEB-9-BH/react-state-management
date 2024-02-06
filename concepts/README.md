@@ -1,4 +1,4 @@
-# ![[tktk Module Name] - Concepts](./assets/hero.png)
+# ![React State Management - Concepts](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to describe the importance of state management in React.
 

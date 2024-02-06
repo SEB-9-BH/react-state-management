@@ -201,3 +201,5 @@ export default App
 
 If `isDarkMode` is true, then we want the className to be 'dark'. As our 'light' mode is realistically just the default CSS styling, we only need to apply a class name in the instance that we need to apply 'dark' styling. We'll also need to add a JSX fragment (<></>) because we're now returning multiple elements. 
 
+There you have it, two different ways to use state to implement a React-ive light and dark mode! 
+

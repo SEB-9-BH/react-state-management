@@ -1,6 +1,6 @@
-# ![[tktk Module Name] - tktk Microlesson Name](./assets/hero.png)
+# ![React State Management - Event Listener Syntax](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to tktk
+**Learning objective:** By the end of this lesson, students will be able to respond to events with event handler functions.
 
 ## Event Listeners
 
@@ -11,17 +11,34 @@ For this lesson, we'll be creating an event handler function that will `console.
 Let's start with our buttons. In the body of `App.jsx`, add the following: 
 
 ```jsx
-const handleMode = () => {
+// src/App.js
+import { useState } from 'react';
+
+const App = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const handleMode = () => {
   // Null, we'll be adding code here in the next step
+  }
+
+  // Add a new div with the following buttons
+  // We'll also need to add a JSX fragment, since we're returning multiple elements now
+  return (
+      <>
+        <div className={isDarkMode ? 'dark': 'light'}>  
+            <h1>Hello world!</h1>
+        </div>
+        <div>
+            <button id='dark' onClick={handleMode}>Dark Mode</button>
+            <button id='light' onClick={handleMode}>Light Mode</button>
+        </div>
+      </>
+  );
 }
 
-return (
-  <>
-    <button id='dark' onClick={handleMode}>Dark Mode</button>
-    <button id='light' onClick={handleMode}>Light Mode</button>
-  </>
-);
+export default App;
 ```
+
 
 Syntactically, this will look a bit similar to how HTML events are handled, but there are a few important differences to note: 
 
@@ -55,13 +72,6 @@ const handleMode = (event) => {
     console.log('Light Mode!')
   }
 }
-
-return (
-  <>
-    <button id='dark' onClick={handleMode}>Dark Mode</button>
-    <button id='light' onClick={handleMode}>Light Mode</button>
-  </>
-);
 ```
 
 If the `id` of the button (the `event.target`) that is clicked was 'dark', then we log 'Dark Mode!'. If the `id` is 'light', then we log 'Light Mode!' But hold on - where did the `event` object come from? 
@@ -73,41 +83,34 @@ The `event` object is passed implicitly as an argument to the handler function! 
 Note that both buttons are being passed the *same* handler function in their `onClick` attribute. This works because `handleMode` is using conditional logic that is based on the `event`. As a result, we can use a single function to handle both button click events! 
 
 ```jsx
+// src/App.js
+import { useState } from 'react';
+
 const App = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-const handleMode = (event) => {
-  if (event.target.id === 'dark') {
-    console.log('Dark Mode!')
+  const handleMode = (event) => {
+    if (event.target.id === 'dark') {
+      console.log('Dark Mode!')
+    }
+    if (event.target.id === 'light') {
+      console.log('Light Mode!')
+    }
   }
-  if (event.target.id === 'light') {
-    console.log('Light Mode!')
-  }
+
+  return (
+      <>
+        <div className={isDarkMode ? 'dark': 'light'}>  
+            <h1>Hello world!</h1>
+        </div>
+        <div>
+            <button id='dark' onClick={handleMode}>Dark Mode</button>
+            <button id='light' onClick={handleMode}>Light Mode</button>
+        </div>
+      </>
+  );
 }
 
-return (
-    <>
-        <button id='dark' onClick={handleMode}>Dark Mode</button>
-        <button id='light' onClick={handleMode}>Light Mode</button>
-      </div>
-    </>
-);
-}
+export default App;
 ```
 
-<!-- SECTION TWO: Remind students of the event object and the e.target property.
-Make a demo app with two or more buttons with distinct functionality that share the same listener.
-
-The critical part is the e.target property! -->
-
-
-
-
-
-tktk Levelup, along with custom event handlers?
-<!-- You might be thinking: 'well, that's all fine and good with simple handlers, but what about instances where I need to pass an argument to the event handler?' You can use an anonymous function to define the event handler inline: 
-
-```jsx
-<button id='dark' onClick={(e) => handleMode(e, 'an argument')}>Dark Mode</button>
-```
-
-In this case, the anonymous function is created immediately, but will only be called when a click event occurs.  -->

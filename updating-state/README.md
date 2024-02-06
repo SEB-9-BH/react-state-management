@@ -55,49 +55,6 @@ const handleMode = (event) => {
 
 We mentioned above that React knows to re-render after a `setState` function runs. When state is directly changed, React is left in the dark, and this causes state to de-sync from the UI. 
 
-[tktk optional mutability example]
-To really drive home this point, let's look at another example. We won't build out an entire form for the purposes of demonstration, so just imagine that the object being pushed into `cats` is incoming form data, instead of being hard coded. 
-
-```jsx
-function ExampleComponent = () => {
-  const [cats, setCats] = useState([
-    { name: 'Myshka', breed: 'Ragdoll' },
-    { name: 'Malta', breed: 'Turkish Angora' }
-  ]);
-
-  const addCat = () => {
-    cats.push({ name: 'Kira', breed: 'Ragamuffin' })
-  };
-
-  return (
-    <>
-    <button onClick={addCat}>Add Cat</button>
-    <ul>
-      {cats.map((cat, idx) => <li key={idx}> cat.name </li>)}
-    </ul>
-    <>
-  );
-};
-```
-
-Normally, we'd expect this to work - when the user clicks the button, we add the new cat object to our `cats` array using the `push()` method. However, our list of cats won't update to reflect the changes, for two reasons! 
-
-First, React doesn't 'know' that state has changed. We can fix that by passing our mutated array to `setCats`: 
-
-```jsx
-  const addCat = () => {
-    cats.push({ name: 'Kira', breed: 'Ragamuffin' })
-    setCats(cats)
-  };
-
-```
-
-React still won't update our cats list! That's because, even if you do alert React to a change, React is going to determine if it should re-render based on a comparison between the old value (`state`), and the new value (`nextState`, as provided to our state setter function). To React, both the old value and the new value are just pointing to the same array in memory, so React will skip re-rendering. 
-
-This is why we need to maintain immutability - instead of mutating the array, we need to make a copy of the original array, make changes to that copy, and then replace the original with it. 
-
-[tktk end sidebar]
-
 ## Using State
 
 With that out of the way, we can use our state to set the styling of our app! In our `App.css` file, we have some simple styling for both `light` and `dark` classes. If we create a container `<div>` for our buttons, we can pass our `mode` state as the class name: 
@@ -203,3 +160,54 @@ If `isDarkMode` is true, then we want the className to be 'dark'. As our 'light'
 
 There you have it, two different ways to use state to implement a React-ive light and dark mode! 
 
+
+
+
+
+
+
+
+## Working with Arrays
+
+Let's take a look at how we can maintain immutability when working with arrays.
+
+In the below `ExampleComponent` we have `cats` state, which is initialized as an array of objects. We also have a button which, when clicked, will invoke the `addCat` event handler. To avoid building an entire form for the purposes of demonstration, we'll just imagine that the object being passed to `addCat` is incoming form data, instead of being hard-coded. 
+
+```jsx
+function ExampleComponent = () => {
+  const [cats, setCats] = useState([
+    { name: 'Myshka', breed: 'Ragdoll' },
+    { name: 'Malta', breed: 'Turkish Angora' }
+  ]);
+
+  const addCat = (newCat) => {
+    // spread current cats array and newCat object into a new array
+    const newCatsArray = [...cats, newCat]
+    // call state setter function with this new array
+    setCats(newCatsArray)
+  };
+
+  return (
+    <>
+      <button onClick={() => addCat({ name: 'Kira', breed: 'Ragamuffin' })}>
+        Add Cat
+      </button>
+      <ul>
+        {cats.map((cat, idx) => <li key={idx}> {cat.name} </li>)}
+      </ul>
+    <>
+  );
+};
+```
+
+After `setCats` is invoked, React is going to determine if it should re-render based on a comparison between the old value (`state`), and the new value (`nextState`, as provided to our state setter function). 
+
+If we didn't make a new array to pass to `setCats`, and instead just pushed the object into state directly, both the old value and the new value would just be pointing to the same array in memory. As a result, React would skip re-rendering, and the list of cats wouldn't change for the user. As you can imagine, this mismatch between the state of the app and the information rendered to the user is a big problem! 
+
+This is why we need to maintain immutability - instead of mutating the array, we need to make a copy of the original array, make changes to that copy, and then replace the original with it! 
+
+```jsx
+  const addCat = (newCat) => {
+    setCats([...cats, newCat])
+  };
+```

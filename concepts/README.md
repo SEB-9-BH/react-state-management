@@ -4,7 +4,7 @@
 
 ## React State
 
-State is a the way to represent data in a React component. The state is a JavaScirpt object that holds and tracks the data a component needs to render. Before thinking of the state in terms of code, let's take this to the real world and consider an example of a state. 
+State is a the way to represent data in a React component. The state is a JavaScript object that holds and tracks the data a component needs to render. Before thinking of the state in terms of code, let's take this to the real world and consider an example of state. 
 
 Think of an oven. On this oven, we have a couple of settings:
 
@@ -18,7 +18,7 @@ The user of this oven can interact with these settings to change them to bake a 
 - Set the timer to 30 minutes
 - Use the light to check on the cake
 
-The oven settings are our state. They are the data needed for the oven to operate. Like the oven, a React component can interact with and have settings that change. When that happens, the component must re-render to reflect the new state. This would be like if the oven's temperature changed; the oven would need to update the display to reflect the new temperature.
+The oven settings are our state. They are the data needed for the oven to operate. The user interacting with the oven is like a user interacting with a React component. The user changes the oven settings, and the oven responds to the changes.
 
 ## Rendering State
 
@@ -33,7 +33,7 @@ State in React is immutable and should not be changed directly. React's state be
 - Predictable Updates: Knows when a component needs to re-render
 - Pure Components: A component produces the same output given the same input
 
-If the state is changed directly, React will not know that the state has changed and will not re-render the component. So, our Pure Components will not be pure, and predictable updates will not be predictable. Simple said **DO NOT CHANGE STATE DIRECTLY**.
+If the state is changed directly, React will not know that the state has changed and will not re-render the component. So, our Pure Components will not be pure, and predictable updates will not be predictable. Simply said **DO NOT CHANGE STATE DIRECTLY**.
 
 Instead, there are built-in hooks from React that allow us to change state. The most common hook for changing state is `useState`.
 

@@ -45,6 +45,7 @@ const App = () => {
 
     const [isDarkMode, setIsDarkMode] = useState();
 
+    // Add a log statement
     console.log('Our isDarkMode state value is:', isDarkMode);
 
     return (
@@ -135,7 +136,7 @@ Are you greeting a user on their profile? Are you displaying a list of user-crea
 
 Almost always, state items are items that we want to render or display to the user. This wonderful data can come in many forms. It can be a string, a number, a boolean, an object, or an array. This can be just about anything; luckily, the `useState` hook can hold just about anything. 
 
-When can hold an object that represents a user:
+We can hold an object that represents a user:
 
 ```jsx
 const [user, setUser] = useState({
@@ -195,4 +196,15 @@ Sometimes, state values are used to toggle display items on and off. We saw abov
 const [isModalOpen, setIsModalOpen] = useState(false);
 ```
 
-Anything that we want to change over time should be considered for the state. This can be a counter, a user input, a list of items, or a boolean value.
+These are good questions to ask yourself when planning out your state. It's important to remember that state is a powerful tool, and it's important to use it wisely.
+
+## 🎓 You do: Create a new State Item
+
+Using the learnings above create a new state item that is an object with the following properties:
+
+- `firstName` - The value should be a string of your name.
+- `lastName` - The value should be a string of your last name.
+- `hasPets` - The value should be a boolean of whether or not you have pets.
+- `age` - The value should be a number of your age.
+
+Then, log the state value to the console and display the state value in the app. If all goes well, challenge yourself by displaying the state value in a sentence. For example, `"Hello, my name is John Doe, I am 25 years old, and I have pets."`

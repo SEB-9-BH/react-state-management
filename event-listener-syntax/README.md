@@ -39,7 +39,6 @@ const App = () => {
 export default App;
 ```
 
-
 Syntactically, this will look a bit similar to how HTML events are handled, but there are a few important differences to note: 
 
 First, React events are always named using camelCase: `onClick`, `onSubmit`, etc.
@@ -77,8 +76,6 @@ const handleMode = (event) => {
 If the `id` of the button (the `event.target`) that is clicked was 'dark', then we log 'Dark Mode!'. If the `id` is 'light', then we log 'Light Mode!' But hold on - where did the `event` object come from? 
 
 The `event` object is passed implicitly as an argument to the handler function! As a result, the only parameter in any handler function will always be the event object, which we are naming `event` in the params of `handleMode`. 
-
-[tktk maybe reuse an existing graphic here reminding students about evt, evt.target, and evt.target.id]
 
 Note that both buttons are being passed the *same* handler function in their `onClick` attribute. This works because `handleMode` is using conditional logic that is based on the `event`. As a result, we can use a single function to handle both button click events! 
 

@@ -18,6 +18,7 @@ const App = () => {
   
 }
 ```
+
 We'll create new state named `mode`, and give it an initial value of `'light'`. 
 
 Next, let's make some changes to our `handleMode()` function. Instead of just `console.log()`-ing a string, we want to set our `mode` state to reflect whichever button the user clicked. Luckily, the `useState` hook makes this process pretty simply - when we destructure the array that `useState()` returns, we get both the state itself as well as a state setter function. Above, we named this state setter function `setMode()`. 
@@ -96,10 +97,9 @@ const App = () => {
 export default App;
 ```
 
-> Remember that we camelCase attributes in JSX! 
+> 💡 Remember that we camelCase attributes in JSX! 
 
 The initial state of `mode` is 'light', so when the page initially renders our 'light' class styling will be applied. Try clicking on the 'Dark Mode' button, and see what happens! 
-
 
 ## Working with Arrays
 

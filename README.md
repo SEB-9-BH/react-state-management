@@ -1,4 +1,4 @@
-# ![React State Management](./assets/tktk-hero.png)
+# ![React State Management](./assets/hero.png)
 
 ## About
 

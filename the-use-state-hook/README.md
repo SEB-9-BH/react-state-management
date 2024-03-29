@@ -6,16 +6,20 @@
 
 State is created in a React component using the `useState` hook. The `useState` hook is a function that returns an array with two elements: 
 
-1. The current state value
-2. A function that allows you to update the state value
+1. A state variable to hold your state data
+2. A state setter function that allows you to update that state value and trigger the rerender of a component
 
 For this section, we will focus on the following:
 
-- Creating a state value
+- Creating a state variable
 - Assigning an initial state value
-- Visually displaying the state value
+- Visually displaying that state value
 
-Let's get to work setting the state value up. First, import `useState` from React. Then, we'll use [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to create a state variable called `isDarkMode` and a function to update the state called `setIsDarkMode`. 
+Let's get to work creating our first state variable. 
+
+First, import the `useState` hook from React. Then, we'll use a [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to unpack the two values returned from our state hook: a state variable and a setter function.
+
+We will name our state variable `isDarkMode` and our function `setIsDarkMode`. 
 
 ```jsx
 // src/App.js
@@ -32,18 +36,22 @@ const App = () => {
 export default App;
 ```
 
+> Destructuring Syntax: This syntax might feel unfamiliar at first, but let's take a closer look at what is happening here. Imagine `useState` as a box, when we open the box we are given two items: a variable to store data and a function to update that variable. What we name these items is up to us, but should reflect the data being stored and updated. In this case `isDarkMode` is our state variable that holds the current state (like whether dark mode is on or off), and `setIsDarkMode` is a function that let's us change or *set* this state.
+
 > In a later section, we will dive into `setIsDarkMode` and how to use it to update the state value.
 
-Let's add a log statement and look at the new state value `isDarkMode`:
+
+Let's add a `console.log` to take a look at our new state value `isDarkMode`:
 
 ```jsx
 // src/App.js
+
 import { useState } from 'react';
 
 const App = () => {
     const [isDarkMode, setIsDarkMode] = useState();
 
-    // Add a log statement
+    // Add a console.log
     console.log('Our isDarkMode state value is:', isDarkMode);
 
     return (
@@ -54,13 +62,27 @@ const App = () => {
 export default App;
 ```
 
-> Make sure your log statement is outside of the return statement.
+> Make sure your console.log is outside of the return statement.
 
 ## Initial State Value
 
-Run `npm run dev` in the terminal and navigate to`http://localhost:5173/`. We should see that the state value is `undefined`. This is because we have not yet assigned an initial state value! 
+In your terminal, run:
 
-If we think through the actions of a dark mode toggle, we want the initial state to be `false` - the initial state of our app will be, by default, a 'light' mode. 
+```bash
+npm run dev
+```
+
+Then navigate to:
+
+```bash
+http://localhost:5173/
+```
+
+We should see that the state value is `undefined`. This is because we have not assigned an initial state value! 
+
+For our dark mode toggle, it makes sense to begin with the state set to `false`. This means that the app will start in 'light' mode by default.
+
+To give our state an initial value, we just need to provide that value as an argument when calling the `useState` hook. 
 
 ```jsx
 // src/App.js
@@ -87,17 +109,37 @@ If we recheck our console, we can see that the state value is now `false`. This 
 
 ![Displaying state](./assets/state-example.png)
 
-Now that we can successfully log the value of our state to the console, let's display the state value in our app. We will use the `isDarkMode` state value to conditionally render dark or light modes. We can do this in many different ways, but for now, let's use a simple ternary operator to conditionally render a class name.
+Now that we can successfully log the value of our state, let's use this value to alter the UI of our component. We will use the `isDarkMode` state value to conditionally render dark or light modes. We can do this in many different ways, but for simplicity, let's use a ternary operator to conditionally apply a CSS class to our component.
 
-In React, we will be reaching for ternary operators a lot. They are a great way to conditionally render content in our application. If `isDarkMode` is true, we want to change the background color of our app to black and the text color to white. If `isDarkMode` is false, we want to change the background color of our app to white and the text color to black. Let's look at an example of this ternary operator in action:
+First we'll create a couple of simple CSS classes to define our two modes.
+
+Replace the contents of `App.css` with the following two classes:
+
+```css
+/* src/App.css */
+
+.light {
+    background-color: #ffffff; /* white background */
+    color: #333333; /* darker text for contrast */
+    border-color: #dddddd; /* light grey borders */
+}
+
+.dark {
+    background-color: #2c3e50; /* dark background */
+    color: #ecf0f1; /* light text for contrast */
+    border-color: #34495e; /* slightly darker border for depth */
+}
+```
+
+> In React, we will be reaching for ternary operators a lot. They are a great way to conditionally render content in our application. If `isDarkMode` is true, we want to change the background color of our app to dark and the text color to light. If `isDarkMode` is false, we want to change the background color of our app to light and the text color to dark. 
+
+Let's look at an example of this ternary operator in action:
 
 ```js
 isDarkMode ? 'dark' : 'light'
 ```
 
-> The CSS classes `light` and `dark` have been included during this module's `Setup` section.
-
-The result of this ternary operation will either be the string value `dark` or `light`. We can use this result as a class name to render a dark or light mode conditionally. Let's add this to our app and see the result.
+The result of this operation will either be the string value `dark` or `light`. We can use this result as a class name to render a dark or light mode conditionally. Let's add this to our app and see the result.
 
 ```jsx
 // src/App.js
@@ -108,7 +150,7 @@ const App = () => {
 
     console.log('Our isDarkMode state value is:', isDarkMode);
 
-    // Add in the div with the className
+    // use className to apply styles in react
     return (
         <div className={isDarkMode ? 'dark': 'light'}>  
             <h1>Hello world!</h1>
@@ -119,7 +161,7 @@ const App = () => {
 export default App;
 ```
 
-If you change the initial state to `true` and check the browser, you will see that our `div` has taken on our dark mode styling. If you change the initial state to `false` and check the browser, you will see that our `div` has taken on our light mode styling.
+If you change the initial state to `true` and check the browser, you will see that our component has taken on some dark mode styling. If you change the initial state to `false`, you will see that our component has taken on our light mode styling.
 
 ## Building State
 

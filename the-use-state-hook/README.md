@@ -7,7 +7,7 @@
 State is created in a React component using the `useState` hook. The `useState` hook is a function that returns an array with two elements: 
 
 1. A state variable to hold your state data
-2. A state setter function that allows you to update that state value and trigger the rerender of a component
+2. A state setter function that allows you to update that state value and trigger the re-render of a component
 
 For this section, we will focus on the following:
 
@@ -23,7 +23,8 @@ We will name our state variable `isDarkMode` and our function `setIsDarkMode`.
 
 ```jsx
 // src/App.js
-import { useState } from 'react';
+import { useState } from "react";
+import "./App.css";
 
 const App = () => {
     const [isDarkMode, setIsDarkMode] = useState();
@@ -36,7 +37,7 @@ const App = () => {
 export default App;
 ```
 
-> Destructuring Syntax: This syntax might feel unfamiliar at first, but let's take a closer look at what is happening here. Imagine `useState` as a box, when we open the box we are given two items: a variable to store data and a function to update that variable. What we name these items is up to us, but should reflect the data being stored and updated. In this case `isDarkMode` is our state variable that holds the current state (like whether dark mode is on or off), and `setIsDarkMode` is a function that let's us change or *set* this state.
+> Destructuring Syntax: This syntax might feel unfamiliar at first, but let's take a closer look at what is happening here. Imagine `useState` as a box, when we open the box we are given two items: a variable to store data and a function to update that variable. What we name these items is up to us, but should reflect the data being stored and updated. In this case `isDarkMode` is our state variable that holds the current state (like whether dark mode is on or off), and `setIsDarkMode` is a function that lets us change or *set* this state.
 
 > In a later section, we will dive into `setIsDarkMode` and how to use it to update the state value.
 
@@ -46,7 +47,8 @@ Let's add a `console.log` to take a look at our new state value `isDarkMode`:
 ```jsx
 // src/App.js
 
-import { useState } from 'react';
+import { useState } from "react";
+import "./App.css";
 
 const App = () => {
     const [isDarkMode, setIsDarkMode] = useState();
@@ -87,6 +89,7 @@ To give our state an initial value, we just need to provide that value as an arg
 ```jsx
 // src/App.js
 import { useState } from 'react';
+import 'App.css'
 
 const App = () => {
 
@@ -111,9 +114,20 @@ If we recheck our console, we can see that the state value is now `false`. This 
 
 Now that we can successfully log the value of our state, let's use this value to alter the UI of our component. We will use the `isDarkMode` state value to conditionally render dark or light modes. We can do this in many different ways, but for simplicity, let's use a ternary operator to conditionally apply a CSS class to our component.
 
-First we'll create a couple of simple CSS classes to define our two modes.
+Let's look at an example of this ternary operator:
 
-Replace the contents of `App.css` with the following two classes:
+```js
+isDarkMode ? 'dark' : 'light'
+```
+
+The result of this operation will either be the string value `dark` or `light`. We can use this result as a class name to render a dark or light mode conditionally.
+
+> In React, we will be using ternary operators a lot. They are a great way to conditionally render content in JSX where being concise is valuable. They don't take up much space in the markup and are easy to read.  In this example, if `isDarkMode` is true, we want to change the background color of our app to dark and the text color to light. If `isDarkMode` is false, we want to change the background color of our app to light and the text color to dark. 
+
+Now, we'll create a couple of simple CSS classes to define our two modes.
+
+First, clear the contents of index.css. We don't need to delete the file, just the default styles provided.
+Next, Replace the contents of `App.css` with the following two classes:
 
 ```css
 /* src/App.css */
@@ -122,24 +136,18 @@ Replace the contents of `App.css` with the following two classes:
     background-color: #ffffff; /* white background */
     color: #333333; /* darker text for contrast */
     border-color: #dddddd; /* light grey borders */
+    font-family: 'Arial', sans-serif;
 }
 
 .dark {
     background-color: #2c3e50; /* dark background */
     color: #ecf0f1; /* light text for contrast */
     border-color: #34495e; /* slightly darker border for depth */
+    font-family: 'Arial', sans-serif;
 }
 ```
 
-> In React, we will be reaching for ternary operators a lot. They are a great way to conditionally render content in our application. If `isDarkMode` is true, we want to change the background color of our app to dark and the text color to light. If `isDarkMode` is false, we want to change the background color of our app to light and the text color to dark. 
-
-Let's look at an example of this ternary operator in action:
-
-```js
-isDarkMode ? 'dark' : 'light'
-```
-
-The result of this operation will either be the string value `dark` or `light`. We can use this result as a class name to render a dark or light mode conditionally. Let's add this to our app and see the result.
+Now we are ready to bring these elements together and conditionally apply our CSS classes depending on our state:
 
 ```jsx
 // src/App.js
@@ -163,23 +171,33 @@ export default App;
 
 If you change the initial state to `true` and check the browser, you will see that our component has taken on some dark mode styling. If you change the initial state to `false`, you will see that our component has taken on our light mode styling.
 
-## Building State
+## Building State in React applications
 
-When building React applications, one big consideration to make is what items we need to hold in state. So let's try to keep some things in mind when thinking about what to hold in state:
+In React, deciding *what* to keep in state is important for your application's functionality. Here are some key questions to help you figure out what should go into the state of a component:
 
-- What data does the component need to render?
-- What data does the component need to keep track of?
-- What data does the component need to change?
+**Data for Rendering**
+- What information does the component need to show? For instance, if you're making a to-do list app, the state might need to include the list of tasks.
 
-These are all good things to remember and ask yourself when planning - let's take a look at some examples of these questions in action.
+**Data to Monitor**
+- What information does the component need to track? This could be anything that changes over time or in response to user interactions, like whether a task is marked as done.
 
-### What data does the component need to render?
+**Data to Update**
+- What information will change within the component? Consider what needs to be dynamic, like adding a new task to your to-do list.
 
-Are you greeting a user on their profile? Are you displaying a list of user-created books? Are you displaying a list of user-created todos? These are all examples of data that the component needs to render. Any data that might change if another user logs in should be considered for the state. 
+### Types of data to store in state
 
-State items are almost always items that we want to render or display to the user. This wonderful data can come in many forms; it can be a string, a number, a boolean, an object, or an array - just about anything. Luckily, the `useState` hook can hold just about anything as well! 
+Whether it's a simple string or a complex array of objects, the `useState` hook in React is flexible and can accommodate any Javascript data type. This allows us to manage and render dynamic content in many forms. 
 
-We can hold an object that represents a user:
+Here are some examples:
+
+**Strings and Numbers:** For straightforward data like a user's name or a counter, use simple strings or numbers.
+
+```jsx
+const [count, setCount] = useState(0);
+const [name, setName] = useState('John Doe');
+```
+
+**Objects:** When you have more complex related information, such as user details, an object might be the most efficient way to store it.
 
 ```jsx
 const [user, setUser] = useState({
@@ -189,7 +207,7 @@ const [user, setUser] = useState({
 });
 ```
 
-We can hold an array of objects. This can be useful if we are working with an API or a CRUD application:
+**Arrays:** If you're dealing with a list of items, like books in a library app, an array is ideal. This is especially handy when working with data from APIs or in CRUD applications.
 
 ```jsx
 const [books, setBooks] = useState([
@@ -204,30 +222,31 @@ const [books, setBooks] = useState([
 ]);
 ```
 
-Or it can be as simple as saving a string or a number:
+> Notice that all of these data types were able to be passed in as the initial value of `useState()`.
 
-```jsx
-const [count, setCount] = useState(0);
-const [name, setName] = useState('John Doe');
-```
+### Dynamic state variables for user interactions
 
-### What data does the component need to change?
-
-Sometimes, state values are used to toggle display items on and off. We saw above how to use a boolean value to toggle a dark mode on and off. We can also use a boolean value to toggle on and off a modal. 
+In React, some state variables are meant to frequently change and are named accordingly. These variables often control elements that users interact with, such as toggles or modals. For example, a boolean state variable can be used to manage the visibility of features like our dark mode toggle or a modal dialog.
 
 ```jsx
 const [isModalOpen, setIsModalOpen] = useState(false);
 ```
 
-These are good questions to ask yourself when planning out your state. State is a powerful tool, and it's important to use it wisely. 
+These state variables typically begin with 'is', 'has', 'can', or other prefixes that imply a boolean value or state condition. The corresponding setter function starts with 'set' followed by the state variable's name. Using 'set' as a prefix is a widely adopted convention in programming, indicating that this function is used to set or update a variable.
 
-## 🎓 You do: Create a new State Item
+Always think about the dynamic nature of your components when planning your state. 
 
-Using what you learned above, create new state with an initial value that is an object with the following properties:
+## 🎓 You do: Create a new state item
 
-- `firstName` - The value should be a string of your name.
-- `lastName` - The value should be a string of your last name.
-- `hasPets` - The value should be a boolean of whether or not you have pets.
-- `age` - The value should be a number of your age.
+Now it's your turn to practice. Create a new state in your React component. This state will be an object with four properties:
 
-Then, log the state value to the console and display the state value in the app. If all goes well, challenge yourself by displaying the state value in a sentence. For example, `"Hello, my name is John Doe, I am 25 years old, and I have pets."`
+- `firstName`: Set this to a string with your first name.
+- `lastName`: Set this to a string with your last name.
+- `hasPets`: Set this to a boolean (true or false) indicating if you have pets.
+- `age`: Set this to a number representing your age.
+
+Once you have set up your state, do two things:
+
+1. Log it: Use a `console.log` to see your state in the browser console.
+2. Display in App: Render your state in your app. 
+Display it as a sentence, like: "Hello, my name is Jane Doe, I am 25 years old, and I have pets."

@@ -4,25 +4,28 @@
 
 ## Event Listeners
 
-React lets you respond to events through the use of built-in event handlers. These event handlers are passed custom functions which will be invoked in response to various user interactions. 
+React lets you respond to events through the use of built-in event handlers. These event handlers are passed custom functions that will be invoked in response to specific user actions. 
 
-For this lesson, we'll be creating an event handler function that will `console.log()` which of two buttons has been clicked on the UI. Eventually, we'll be using these UI elements to toggle between a simple light and dark mode design, so we'll be using that language when constructing the buttons and event handlers.
+In this lesson, we’re going to create a function that responds to button clicks. This function will display a message in the console, telling us which button was clicked. We'll use two buttons for this: one to represent 'Light Mode' and the other for 'Dark Mode'. Later, we'll refactor these buttons to actually switch the app's design between light and dark modes. For now, let's focus on setting up the buttons and making sure our function can identify which one is clicked.
 
-Let's start with our buttons. In the body of `App.jsx`, add the following: 
+Let's start by creating two buttons and a placeholder for our handler function. Add the following in `App.jsx`:
 
 ```jsx
 // src/App.js
 import { useState } from 'react';
+import "./App.css";
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
+  // Placeholder function for handling mode changes
+  // We'll implement the functionality in the next step
   const handleMode = () => {
-  // Null, we'll be adding code here in the next step
+  // TODO: Implement the logic to toggle dark and light mode
   }
 
   // Add a new div with the following buttons
-  // We'll also need to add a JSX fragment, since we're returning multiple elements now
+  // JSX Fragment to group multiple elements without adding extra nodes to the DOM
   return (
       <>
         <div className={isDarkMode ? 'dark': 'light'}>  
@@ -39,28 +42,31 @@ const App = () => {
 export default App;
 ```
 
-Syntactically, this will look a bit similar to how HTML events are handled, but there are a few important differences to note: 
+In React, handling events in the UI looks similar to how it's done in HTML, but with a few key differences to keep in mind:
 
-First, React events are always named using camelCase: `onClick`, `onSubmit`, etc.
+1. First, React events are always named using camelCase: `onClick`, `onSubmit`, etc.
 
-Secondly, functions passed to event handlers must not be called! Since the JavaScript inside of JSX brackets executes immediately during render, invoking the function when you pass it to the event handler will cause it to fire off without a click event! 
+2. Secondly, when you assign a function to an event handler in React, remember not to call the function directly. Since the JavaScript inside of JSX brackets executes immediately during render, invoking the function when you pass it to the event handler will cause it to fire off without a click event!
 
 Instead, we want to simply pass the function as a reference, and React will call the function when the user clicks the element: 
 
-```jsx
-// Incorrect: invoking the function
-<button id='dark' onClick={handleMode()}>Dark Mode</button>
-```
-```jsx
-// Correct: passing the function
-<button id='dark' onClick={handleMode}>Dark Mode</button>
-```
+- ***Incorrect*** (function is invoked immediately)
 
-## Coding the event handler function
+  ```jsx
+  <button id='dark' onClick={handleMode()}>Dark Mode</button>
+  ```
 
-Conventionally, we attach a `handle` prefix for event handlers. Since this function will eventually be responsible for toggling between the two modes, a name like `handleMode` is fitting. 
+- ***Correct*** (function is passed as a reference and will be called on click)
 
-Let's add some functionality to our event handler: 
+  ```jsx
+  <button id='dark' onClick={handleMode}>Dark Mode</button>
+  ```
+
+## Creating an event handler function
+
+Conventionally, we attach a `"handle"` prefix to the name of event handler functions. Since this function will eventually be responsible for toggling between the two modes, a name like `handleMode` is fitting. 
+
+Let's add some logic to our event handler function: 
 
 ```jsx
 const handleMode = (event) => {
@@ -73,15 +79,16 @@ const handleMode = (event) => {
 }
 ```
 
-If the `id` of the button (the `event.target`) that is clicked was 'dark', then we log 'Dark Mode!'. If the `id` is 'light', then we log 'Light Mode!' But hold on - where did the `event` object come from? 
+When one of our buttons is clicked, we want to log a message based on which button it was – 'Dark Mode!' for the dark button, and 'Light Mode!' for the light button. But how do we know which button was clicked? This is where the `event` object comes in 
 
-The `event` object is passed implicitly as an argument to the handler function! As a result, the only parameter in any handler function will always be the event object, which we are naming `event` in the params of `handleMode`. 
+Every time a button is clicked, React automatically sends an `event` object to the handler function. This object contains information about the event, including which element was clicked. In our `handleMode` function, we receive this event object as a parameter. By checking the `id` of `event.target` (the clicked element), we can determine which button was clicked.
 
-Note that both buttons are being passed the *same* handler function in their `onClick` attribute. This works because `handleMode` is using conditional logic that is based on the `event`. As a result, we can use a single function to handle both button click events! 
+Here's the interesting part: both buttons use the same `handleMode` function for their `onClick` event. This works because inside `handleMode`, we use the event object to check which button was clicked and respond accordingly. So, with one function, we can handle clicks for both buttons!
 
 ```jsx
 // src/App.js
 import { useState } from 'react';
+import "./App.css";
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -111,3 +118,4 @@ const App = () => {
 export default App;
 ```
 
+Test your buttons to make sure the correct mode is being logged to the console. Nice Job! 

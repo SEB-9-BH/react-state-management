@@ -1,47 +1,65 @@
 # ![React State Management - Concepts](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to describe the importance of state management in React.
+**Learning objective:** By the end of this lesson, students will be able to describe the concept of state in React and how it determines behavior, appearance, and the rendering and re-rendering of components.
 
-## React State
+## React state
 
-State is a way to represent data in a React component. Before thinking of state in terms of code, let's take this to the real world and consider an example of state. 
+Think of state as the present "status" or "condition" of something. The way you are feeling right now could be described as your "mental state."
 
-Think of an oven. On this oven, we have a couple of settings:
+Similarly, **_state_** in React can be thought of as the "present status" of a component. It holds the answers to questions like: "has a user selected something?" or "what is the current input value of a form?" As code, state is an object that reflects the current attributes or conditions of a component. Sometimes components need the ability to remember and keep track of their status, we call that local memory *state.*
 
-- Temperature
-- Timer
-- Light
+## State as an analogy
 
-The user of this oven can interact with these settings to change them to bake a cake:
+To understand state in a more tangible way, let's compare a component to an everyday object - an oven. Think about the features on an oven. Most ovens have a control for temperature, an oven light, and maybe even a built in timer for tracking cooking time.
 
-- Set the temperature to 350 degrees
-- Set the timer to 30 minutes
-- Use the light to check on the cake
+| **Oven Feature**        | **Function**                        |
+| ----------------------- | ----------------------------------- |
+| Control for Temperature | Sets the cooking heat.              |
+| Oven Light              | Used to see inside without opening. |
+| Timer                   | Tracks cooking time.                |
 
-You can think of the oven's settings as state. They are the data needed for the oven to operate. The user interacting with the oven is like a user interacting with a React component: the user changes the oven settings, and the oven responds to the changes.
+By interacting with these controls we, the user, have the ability to alter the state inside our oven.
+
+| **User Interaction**          | **State Change**      |
+| ----------------------------- | --------------------- |
+| User sets temperature         | Temperature changes   |
+| User toggles the light switch | Light turns on or off |
+| User sets the timer           | Timer counts down     |
+
+In the process of baking a cake, users interact with an oven in very specific ways, such as:
+
+- Setting the temperature to 350 degrees
+- Setting the timer to 30 minutes
+- Turning on the light to check progress
+
+In each instance, the user modifies a setting, and the oven adapts to these changes. This mirrors how a user's interactions influence a React component's state.
+
+Much like operating an oven, interacting with a web application involves specific user actions that trigger state changes in its components. For example, clicking a button might change a component's state from 'inactive' to 'active'. Each React component, like an individual appliance, has a distinct function and maintains its own state, separate from other components.
+
+Just as kitchen appliances collaborate to facilitate cooking, React components work together, each contributing to the overall functionality of the application. 
 
 ## Rendering State
 
-When a component is first rendered, the state is used to determine what the component looks like. When that state changes, the component must re-render to reflect the new state. This is the basic idea of how state is used in a React component.
+Before a component renders for the first time, React examines its state. This initial state influences the component’s appearance and behavior, including any conditional UI elements that need to be displayed. Every time a user interacts with the component, React checks if these interactions have altered the state. If the state has changed, React automatically re-renders the component to reflect these updates.
 
-Taking this back to our oven example, when the user changes the oven's temperature, the oven needs to update the display to reflect the new temperature. This is the same idea with a React component. When the state changes, the component must re-render to reflect the new state.
+Think of it in terms of our oven analogy: When you adjust the oven’s temperature, the oven’s display updates to show the new setting. Similarly, in a React component, any change in state leads to an update in the component’s rendering, making sure that what the user sees is always current.
 
-## Immutable State
+This ongoing cycle of checking the state, rendering the component, and updating the render with each state change is fundamental to how React components function.
 
-State in React is immutable and should not be changed directly. React's state being immutable is essential for a couple of reasons:
+## Changing state
 
-- Predictable Updates: Immutable state guarantees that React knows when a component needs to re-render. You'll see this in action later in this lesson.
+In React, its important to know two key things before changing a components state:
 
-- Pure Components: A pure functional component is one that always produces the same output given the same input, and doesn't rely on or modify external data. This allows for a great deal of code consistency and component reusability.
+### State is *immutable*
 
-If the state is changed directly, React will not know that the state has changed and will not re-render the component. Going back to our oven example, this could mean that your oven has actually been turned off, while the user interface is still showing 425 degrees. As you can imagine, this would be a pretty bad user experience.
+- This means you shouldn't change the state *directly*. You wouldn’t manually turn the gears inside an oven to change the temperature. Instead, you use the oven's knobs or buttons. In React, you use special functions to update the state. This helps React keep track of when to update and show changes in your components.
 
-Simply said **DO NOT CHANGE STATE DIRECTLY**.
+### Keep things predictable
 
-Instead, there are built-in hooks from React that allow us to change state. The most common method for changing state is included in the `useState` hook, for example.
+- Because state doesn't change directly, it's easier to predict how your components will behave. Directly changing the state for a component is like an oven display showing 425 degrees when the actual temperature is different. This can cause confusion and bugs in your UI.
+
+Simply said ***never directly alter the state object*** of a component.
 
 ## Legacy State
 
-React has been around for a while and has undergone a lot of growth and changes. One of the big changes that happened centered around how state is managed. In the past, state was managed in class-based components, but this is no longer the recommended way to manage state. In modern React, the recommended way to manage the state of a component is with hooks.
-
-When searching for information about state management in React, look for information about hooks and not class-based components. This is important because the way the state is managed in class-based components is different than the way the state is managed with hooks.
+In React's evolution, the way we manage state has changed. Originally, state was handled with class-based components. Now, we use a simpler, more efficient method called hooks. Hooks are special functions that let you 'hook into' React features, like state management, in components. As a beginner, focus on learning hooks for state management, since they're the current standard. While you might still see class-based examples online, always refer to hooks-based approaches for managing state in your projects.

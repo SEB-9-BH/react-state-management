@@ -6,20 +6,25 @@
 
 State is created in a React component using the `useState` hook. The `useState` hook is a function that returns an array with two elements: 
 
-1. The current state value
-2. A function that allows you to update the state value
+1. A state variable to hold your state data
+2. A state setter function that allows you to update that state value and trigger the re-render of a component
 
 For this section, we will focus on the following:
 
-- Creating a state value
+- Creating a state variable
 - Assigning an initial state value
-- Visually displaying the state value
+- Visually displaying that state value
 
-Let's get to work setting the state value up. First, import `useState` from React. Then, we'll use [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to create a state variable called `isDarkMode` and a function to update the state called `setIsDarkMode`. 
+Let's get to work creating our first state variable. 
+
+First, import the `useState` hook from React. Then, we'll use a [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to unpack the two values returned from our state hook: a state variable and a setter function.
+
+We will name our state variable `isDarkMode` and our function `setIsDarkMode`. 
 
 ```jsx
 // src/App.js
-import { useState } from 'react';
+import { useState } from "react";
+import "./App.css";
 
 const App = () => {
     const [isDarkMode, setIsDarkMode] = useState();
@@ -32,18 +37,23 @@ const App = () => {
 export default App;
 ```
 
+> Destructuring Syntax: This syntax might feel unfamiliar at first, but let's take a closer look at what is happening here. Imagine `useState` as a box, when we open the box we are given two items: a variable to store data and a function to update that variable. What we name these items is up to us, but should reflect the data being stored and updated. In this case `isDarkMode` is our state variable that holds the current state (like whether dark mode is on or off), and `setIsDarkMode` is a function that lets us change or *set* this state.
+
 > In a later section, we will dive into `setIsDarkMode` and how to use it to update the state value.
 
-Let's add a log statement and look at the new state value `isDarkMode`:
+
+Let's add a `console.log` to take a look at our new state value `isDarkMode`:
 
 ```jsx
 // src/App.js
-import { useState } from 'react';
+
+import { useState } from "react";
+import "./App.css";
 
 const App = () => {
     const [isDarkMode, setIsDarkMode] = useState();
 
-    // Add a log statement
+    // Add a console.log
     console.log('Our isDarkMode state value is:', isDarkMode);
 
     return (
@@ -54,17 +64,32 @@ const App = () => {
 export default App;
 ```
 
-> Make sure your log statement is outside of the return statement.
+> Make sure your console.log is outside of the return statement.
 
 ## Initial State Value
 
-Run `npm run dev` in the terminal and navigate to`http://localhost:5173/`. We should see that the state value is `undefined`. This is because we have not yet assigned an initial state value! 
+In your terminal, run:
 
-If we think through the actions of a dark mode toggle, we want the initial state to be `false` - the initial state of our app will be, by default, a 'light' mode. 
+```bash
+npm run dev
+```
+
+Then navigate to:
+
+```bash
+http://localhost:5173/
+```
+
+We should see that the state value is `undefined`. This is because we have not assigned an initial state value! 
+
+For our dark mode toggle, it makes sense to begin with the state set to `false`. This means that the app will start in 'light' mode by default.
+
+To give our state an initial value, we just need to provide that value as an argument when calling the `useState` hook. 
 
 ```jsx
 // src/App.js
 import { useState } from 'react';
+import 'App.css'
 
 const App = () => {
 
@@ -87,28 +112,54 @@ If we recheck our console, we can see that the state value is now `false`. This 
 
 ![Displaying state](./assets/state-example.png)
 
-Now that we can successfully log the value of our state to the console, let's display the state value in our app. We will use the `isDarkMode` state value to conditionally render dark or light modes. We can do this in many different ways, but for now, let's use a simple ternary operator to conditionally render a class name.
+Now that we can successfully log the value of our state, let's use this value to alter the UI of our component. We will use the `isDarkMode` state value to conditionally render dark or light modes. We can do this in many different ways, but for simplicity, let's use a ternary operator to conditionally apply a CSS class to our component.
 
-In React, we will be reaching for ternary operators a lot. They are a great way to conditionally render content in our application. If `isDarkMode` is true, we want to change the background color of our app to black and the text color to white. If `isDarkMode` is false, we want to change the background color of our app to white and the text color to black. Let's look at an example of this ternary operator in action:
+Let's look at an example of this ternary operator:
 
 ```js
 isDarkMode ? 'dark' : 'light'
 ```
 
-> The CSS classes `light` and `dark` have been included during this module's `Setup` section.
+The result of this operation will either be the string value `dark` or `light`. We can use this result as a class name to render a dark or light mode conditionally.
 
-The result of this ternary operation will either be the string value `dark` or `light`. We can use this result as a class name to render a dark or light mode conditionally. Let's add this to our app and see the result.
+> In React, we will be using ternary operators a lot. They are a great way to conditionally render content in JSX where being concise is valuable. They don't take up much space in the markup and are easy to read.  In this example, if `isDarkMode` is true, we want to change the background color of our app to dark and the text color to light. If `isDarkMode` is false, we want to change the background color of our app to light and the text color to dark. 
+
+Now, we'll create a couple of simple CSS classes to define our two modes.
+Replace the contents of `App.css` with the following two classes:
+
+```css
+/* src/App.css */
+
+.light {
+    background-color: #ffffff; /* white background */
+    color: #333333; /* darker text for contrast */
+    border-color: #dddddd; /* light grey borders */
+    font-family: 'Arial', sans-serif;
+}
+
+.dark {
+    background-color: #2c3e50; /* dark background */
+    color: #ecf0f1; /* light text for contrast */
+    border-color: #34495e; /* slightly darker border for depth */
+    font-family: 'Arial', sans-serif;
+}
+```
+
+> Remember to add the import statement for the CSS file at the top of your component file if its not already included.
+
+Now we are ready to bring these elements together and conditionally apply our CSS classes depending on our state.
 
 ```jsx
 // src/App.js
 import { useState } from 'react';
+import "./App.css";
 
 const App = () => {
     const [isDarkMode, setIsDarkMode] = useState(false);
 
     console.log('Our isDarkMode state value is:', isDarkMode);
 
-    // Add in the div with the className
+    // use className to apply styles in react
     return (
         <div className={isDarkMode ? 'dark': 'light'}>  
             <h1>Hello world!</h1>
@@ -119,25 +170,35 @@ const App = () => {
 export default App;
 ```
 
-If you change the initial state to `true` and check the browser, you will see that our `div` has taken on our dark mode styling. If you change the initial state to `false` and check the browser, you will see that our `div` has taken on our light mode styling.
+If you change the initial state to `true` and check the browser, you will see that our component has taken on some dark mode styling. If you change the initial state to `false`, you will see that our component has taken on our light mode styling.
 
-## Building State
+## Building State in React applications
 
-When building React applications, one big consideration to make is what items we need to hold in state. So let's try to keep some things in mind when thinking about what to hold in state:
+In React, deciding *what* to keep in state is important for your application's functionality. Here are some key questions to help you figure out what should go into the state of a component:
 
-- What data does the component need to render?
-- What data does the component need to keep track of?
-- What data does the component need to change?
+**Data for Rendering**
+- What information does the component need to show? For instance, if you're making a to-do list app, the state might need to include the list of tasks.
 
-These are all good things to remember and ask yourself when planning - let's take a look at some examples of these questions in action.
+**Data to Monitor**
+- What information does the component need to track? This could be anything that changes over time or in response to user interactions, like whether a task is marked as done.
 
-### What data does the component need to render?
+**Data to Update**
+- What information will change within the component? Consider what needs to be dynamic, like adding a new task to your to-do list.
 
-Are you greeting a user on their profile? Are you displaying a list of user-created books? Are you displaying a list of user-created todos? These are all examples of data that the component needs to render. Any data that might change if another user logs in should be considered for the state. 
+### Types of data to store in state
 
-State items are almost always items that we want to render or display to the user. This wonderful data can come in many forms; it can be a string, a number, a boolean, an object, or an array - just about anything. Luckily, the `useState` hook can hold just about anything as well! 
+Whether it's a simple string or a complex array of objects, the `useState` hook in React is flexible and can accommodate any Javascript data type. This allows us to manage and render dynamic content in many forms. 
 
-We can hold an object that represents a user:
+Here are some examples:
+
+**Strings and Numbers:** For straightforward data like a user's name or a counter, use simple strings or numbers.
+
+```jsx
+const [count, setCount] = useState(0);
+const [name, setName] = useState('John Doe');
+```
+
+**Objects:** When you have more complex related information, such as user details, an object might be the most efficient way to store it.
 
 ```jsx
 const [user, setUser] = useState({
@@ -147,7 +208,7 @@ const [user, setUser] = useState({
 });
 ```
 
-We can hold an array of objects. This can be useful if we are working with an API or a CRUD application:
+**Arrays:** If you're dealing with a list of items, like books in a library app, an array is ideal. This is especially handy when working with data from APIs or in CRUD applications.
 
 ```jsx
 const [books, setBooks] = useState([
@@ -162,30 +223,31 @@ const [books, setBooks] = useState([
 ]);
 ```
 
-Or it can be as simple as saving a string or a number:
+> Notice that all of these data types were able to be passed in as the initial value of `useState()`.
 
-```jsx
-const [count, setCount] = useState(0);
-const [name, setName] = useState('John Doe');
-```
+### Dynamic state variables for user interactions
 
-### What data does the component need to change?
-
-Sometimes, state values are used to toggle display items on and off. We saw above how to use a boolean value to toggle a dark mode on and off. We can also use a boolean value to toggle on and off a modal. 
+In React, some state variables are meant to frequently change and are named accordingly. These variables often control elements that users interact with, such as toggles or modals. For example, a boolean state variable can be used to manage the visibility of features like our dark mode toggle or a modal dialog.
 
 ```jsx
 const [isModalOpen, setIsModalOpen] = useState(false);
 ```
 
-These are good questions to ask yourself when planning out your state. State is a powerful tool, and it's important to use it wisely. 
+These state variables typically begin with 'is', 'has', 'can', or other prefixes that imply a boolean value or state condition. The corresponding setter function starts with 'set' followed by the state variable's name. Using 'set' as a prefix is a widely adopted convention in programming, indicating that this function is used to set or update a variable.
 
-## 🎓 You do: Create a new State Item
+Always think about the dynamic nature of your components when planning your state. 
 
-Using what you learned above, create new state with an initial value that is an object with the following properties:
+## 🎓 You do: Create a new state item
 
-- `firstName` - The value should be a string of your name.
-- `lastName` - The value should be a string of your last name.
-- `hasPets` - The value should be a boolean of whether or not you have pets.
-- `age` - The value should be a number of your age.
+Now it's your turn to practice. Create a new state in your React component. This state will be an object with four properties:
 
-Then, log the state value to the console and display the state value in the app. If all goes well, challenge yourself by displaying the state value in a sentence. For example, `"Hello, my name is John Doe, I am 25 years old, and I have pets."`
+- `firstName`: Set this to a string with your first name.
+- `lastName`: Set this to a string with your last name.
+- `hasPets`: Set this to a boolean (true or false) indicating if you have pets.
+- `age`: Set this to a number representing your age.
+
+Once you have set up your state, do two things:
+
+1. Log it: Use a `console.log` to see your state in the browser console.
+2. Display in App: Render your state in your app. 
+Display it as a sentence, like: "Hello, my name is Jane Doe, I am 25 years old, and I have pets."

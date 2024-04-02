@@ -4,9 +4,9 @@
 
 ## React state
 
-Think of state as the "present status" or "current condition" of something. The way you are feeling right now could be described as your "emotional state."
+Think of state as the present "status" or "condition" of something. The way you are feeling right now could be described as your "mental state."
 
-Similarly, **_state_** in React can be thought of as the "present status" of a component. It holds the answers to questions like: has a user selected something or should the UI be different for this type of user? Under the hood, state is a dynamic data object that reflects the current attributes or conditions of a component.
+Similarly, **_state_** in React can be thought of as the "present status" of a component. It holds the answers to questions like: "has a user selected something?" or "what is the current input value of a form?" As code, state is an object that reflects the current attributes or conditions of a component. Sometimes components need the ability to remember and keep track of their status, we call that local memory *state.*
 
 ## State as an analogy
 
@@ -54,7 +54,7 @@ In React, its important to know two key things before changing a components stat
 
 - This means you shouldn't change the state *directly*. You wouldn’t manually turn the gears inside an oven to change the temperature. Instead, you use the oven's knobs or buttons. In React, you use special functions to update the state. This helps React keep track of when to update and show changes in your components.
 
-### Keeps things predictable
+### Keep things predictable
 
 - Because state doesn't change directly, it's easier to predict how your components will behave. Directly changing the state for a component is like an oven display showing 425 degrees when the actual temperature is different. This can cause confusion and bugs in your UI.
 

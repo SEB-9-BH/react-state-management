@@ -146,12 +146,13 @@ Next, Replace the contents of `App.css` with the following two classes:
     font-family: 'Arial', sans-serif;
 }
 ```
-
+tktk add app.css to app.jsx
 Now we are ready to bring these elements together and conditionally apply our CSS classes depending on our state:
 
 ```jsx
 // src/App.js
 import { useState } from 'react';
+import "./App.css";
 
 const App = () => {
     const [isDarkMode, setIsDarkMode] = useState(false);

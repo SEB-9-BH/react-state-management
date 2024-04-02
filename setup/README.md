@@ -56,6 +56,7 @@ Open the `App.jsx` file in the `src` directory and replace the contents of it wi
 
 ```jsx
 // src/App.jsx
+import "./App.css";
 
 const App = () => {
 
@@ -66,6 +67,9 @@ const App = () => {
 
 export default App
 ```
+### Clear `index.css`
+
+Clear the contents of `index.css`. No need to delete the file, just clear default styles provided. We will be adding our own CSS in `App.css` later.
 
 ### GitHub setup
 

@@ -125,9 +125,7 @@ The result of this operation will either be the string value `dark` or `light`. 
 > In React, we will be using ternary operators a lot. They are a great way to conditionally render content in JSX where being concise is valuable. They don't take up much space in the markup and are easy to read.  In this example, if `isDarkMode` is true, we want to change the background color of our app to dark and the text color to light. If `isDarkMode` is false, we want to change the background color of our app to light and the text color to dark. 
 
 Now, we'll create a couple of simple CSS classes to define our two modes.
-
-First, clear the contents of index.css. We don't need to delete the file, just the default styles provided.
-Next, Replace the contents of `App.css` with the following two classes:
+Replace the contents of `App.css` with the following two classes:
 
 ```css
 /* src/App.css */
@@ -146,8 +144,10 @@ Next, Replace the contents of `App.css` with the following two classes:
     font-family: 'Arial', sans-serif;
 }
 ```
-tktk add app.css to app.jsx
-Now we are ready to bring these elements together and conditionally apply our CSS classes depending on our state:
+
+> Remember to add the import statement for the CSS file at the top of your component file if its not already included.
+
+Now we are ready to bring these elements together and conditionally apply our CSS classes depending on our state.
 
 ```jsx
 // src/App.js

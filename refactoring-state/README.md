@@ -34,17 +34,17 @@ The refactored `handleMode` function can handle any mode string passed to it. Th
 
 As new modes are introduced, you don't need to revisit this function to make updates, making it more maintainable.
 
-### Potential pitfalls 
+### Potential pitfalls
 
 The function assumes that the passed string is a valid mode. If an invalid string is passed, it might lead to unexpected behaviors or a broken UI. For example, if `handleMode('unknownMode')` is called, the app might apply a non-existent CSS class.
 
 While flexible, this approach can become unwieldy as the number of modes increases. If modes have distinct behaviors beyond just visual changes, managing all these within a single state variable can become challenging.
 
-It may be necessary in the future to add conditional logic that checks a passed in mode against a list of "known" modes that have corresponding CSS classes. 
+It may be necessary in the future to add conditional logic that checks a passed in mode against a list of "known" modes that have corresponding CSS classes.
 
 ## Update the event handlers on buttons
 
-Now, we'll update the buttons' `onClick` handlers to pass the respective mode string. 
+Now, we'll update the buttons' `onClick` handlers to pass the respective mode string.
 
 Normally, when you use `onClick={handleMode}`, you’re telling React to call the `handleMode` function when the event occurs. However, if you need to pass an argument to `handleMode`, like 'dark' or 'light', you can't just write `onClick={handleMode('dark')}`. This would call the function immediately when the component renders, not when the button is clicked.
 
@@ -77,7 +77,6 @@ Let's refactor to use the new `mode` state to dynamically set the class for your
 
 Your final refactor in `App.jsx` should look something like this:
 
-
 ```jsx
 // src/App.js
 import { useState } from "react";
@@ -106,7 +105,7 @@ const App = () => {
 export default App;
 ```
 
-Great work! 
+Great work!
 
 ## 🎓 You Do : Add a new theme
 

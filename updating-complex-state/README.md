@@ -41,7 +41,6 @@ function ExampleComponent = () => {
 
 2. To simplify our example and focus on the state management aspect, we're directly passing a new cat object to the `addCat` function when the button is clicked. In a real-world application, this data might typically come from a form input where users can add details of a new cat. However, for our learning purposes, we use hardcoded data to demonstrate how the state updates with new items.
 
-
 Here's how it works: Upon clicking the button, addCat is called with a predefined cat object. Inside addCat, we use the spread operator `...` to create a new array that contains all existing cats plus the new one. This method ensures we're *not modifying the original state directly* but creating a new updated version of it, which is a key practice in React for ensuring smooth and predictable state updates.
 
 ```js
@@ -53,11 +52,11 @@ Here's how it works: Upon clicking the button, addCat is called with a predefine
   };
 ```
 
-After `setCats` is invoked, React is going to determine if it should re-render based on a comparison between the old value `state`, and the new value `nextState`, as provided to our state setter function. 
+After `setCats` is invoked, React is going to determine if it should re-render based on a comparison between the old value `state`, and the new value `nextState`, as provided to our state setter function.
 
-If we didn't make a new array to pass to `setCats`, and instead just pushed the object into state directly, both the old value and the new value would just be pointing to the same array in memory. As a result, React would skip re-rendering, and the list of cats wouldn't change for the user. As you can imagine, this mismatch between the state of the app and the information rendered to the user is a big problem! 
+If we didn't make a new array to pass to `setCats`, and instead just pushed the object into state directly, both the old value and the new value would just be pointing to the same array in memory. As a result, React would skip re-rendering, and the list of cats wouldn't change for the user. As you can imagine, this mismatch between the state of the app and the information rendered to the user is a big problem!
 
-This is why we need to maintain immutability - instead of mutating the array, we need to make a copy of the original array, make changes to that copy, and then replace the original with it! 
+This is why we need to maintain immutability - instead of mutating the array, we need to make a copy of the original array, make changes to that copy, and then replace the original with it!
 
 ```jsx
   const addCat = (newCat) => {

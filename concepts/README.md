@@ -2,64 +2,72 @@
 
 **Learning objective:** By the end of this lesson, students will be able to describe the concept of state in React and how it determines behavior, appearance, and the rendering and re-rendering of components.
 
+tktk Hunter, I think there are some good opportunity in this lecture for an asset or two if you have any ideas of something simple and quick after reading through this.
+
 ## React state
 
-Think of state as the present "status" or "condition" of something. The way you are feeling right now could be described as your "mental state."
+Think of state as the present ***status*** or ***condition*** of something. How you feel right now could be described as your ***mental state***.
 
-Similarly, **_state_** in React can be thought of as the "present status" of a component. It holds the answers to questions like: "has a user selected something?" or "what is the current input value of a form?" As code, state is an object that reflects the current attributes or conditions of a component. Sometimes components need the ability to remember and keep track of their status, we call that local memory *state.*
+Similarly, *state* in React can be thought of as the present status of a component. It holds the answers to questions like "Has a user selected something?" or "What is the current input value of a form?"
+
+As code, state reflects a component's current attributes or conditions. Any type of data can be put into state - strings, objects, arrays, etc.
 
 ## State as an analogy
 
-To understand state in a more tangible way, let's compare a component to an everyday object - an oven. Think about the features on an oven. Most ovens have a control for temperature, an oven light, and maybe even a built in timer for tracking cooking time.
+To understand state in a more tangible way, let's compare a component to an everyday object - an oven. Think about the features of an oven. Ovens have controls to set the temperature, a light, and maybe even a built-in timer for tracking cooking time.
 
-| **Oven Feature**        | **Function**                        |
-| ----------------------- | ----------------------------------- |
-| Control for Temperature | Sets the cooking heat.              |
-| Oven Light              | Used to see inside without opening. |
-| Timer                   | Tracks cooking time.                |
+| **Oven Feature**    | **Function**                        |
+| ------------------- | ----------------------------------- |
+| Temperature control | Sets the cooking heat.              |
+| Oven light          | Used to see inside without opening. |
+| Timer               | Tracks cooking time.                |
 
-By interacting with these controls we, the user, have the ability to alter the state inside our oven.
+By interacting with these controls, users can alter the state of the oven.
 
-| **User Interaction**          | **State Change**      |
-| ----------------------------- | --------------------- |
-| User sets temperature         | Temperature changes   |
-| User toggles the light switch | Light turns on or off |
-| User sets the timer           | Timer counts down     |
+| **User Interaction**               | **State Change**                                                                     |
+| ---------------------------------- | ------------------------------------------------------------------------------------ |
+| The user sets the temperature.     | The temperature in the oven changes.                                                 |
+| The user toggles the light switch. | The oven light turns on or off.                                                      |
+| The user sets the timer.           | The timer is set and starts to count down. When the timer runs out, an alarm sounds. |
 
-In the process of baking a cake, users interact with an oven in very specific ways, such as:
+Imagine you were backing a cake. As part of this process, you would interact with the oven in very specific ways, such as:
 
-- Setting the temperature to 350 degrees
-- Setting the timer to 30 minutes
-- Turning on the light to check progress
+- Setting the temperature to 350 degrees.
+- Setting the timer to 30 minutes.
+- Turning on the light to check on the cake when the timer goes off.
 
 In each instance, the user modifies a setting, and the oven adapts to these changes. This mirrors how a user's interactions influence a React component's state.
 
-Much like operating an oven, interacting with a web application involves specific user actions that trigger state changes in its components. For example, clicking a button might change a component's state from 'inactive' to 'active'. Each React component, like an individual appliance, has a distinct function and maintains its own state, separate from other components.
+Much like operating an oven, interacting with a web application involves specific user actions that trigger state changes in its components. For example, clicking a button might change a component's state from 'inactive' to 'active'.
 
-Just as kitchen appliances collaborate to facilitate cooking, React components work together, each contributing to the overall functionality of the application. 
+Each React component, like an individual appliance, has a distinct function and maintains its own state, separate from other components.
+
+Just as kitchen appliances collaborate to facilitate cooking, React components work together, each contributing to the application's functionality.
 
 ## Rendering State
 
-Before a component renders for the first time, React examines its state. This initial state influences the component’s appearance and behavior, including any conditional UI elements that need to be displayed. Every time a user interacts with the component, React checks if these interactions have altered the state. If the state has changed, React automatically re-renders the component to reflect these updates.
+Before a component renders for the first time, React examines its state. This initial state influences the component's appearance and behavior, including any conditional UI elements that must be displayed based on that state.
 
-Think of it in terms of our oven analogy: When you adjust the oven’s temperature, the oven’s display updates to show the new setting. Similarly, in a React component, any change in state leads to an update in the component’s rendering, making sure that what the user sees is always current.
+Every time a user interacts with the component, React checks if these interactions have altered the state. If the state has changed, React re-renders the component to reflect those changes.
+
+Think of it in terms of our oven analogy: When you adjust the oven's temperature, its display updates to show the new setting. Similarly, in a React component, any change in state can lead to a change in the component's output. This ensures that what the user sees is always current.
 
 This ongoing cycle of checking the state, rendering the component, and updating the render with each state change is fundamental to how React components function.
 
 ## Changing state
 
-In React, its important to know two key things before changing a components state:
+It's vital to understand that ***component state is managed by React***.
 
-### State is *immutable*
+This means ***you should never change state directly***. You wouldn't directly apply power to an oven's heating elements to change the its temperature. Instead, you use the oven's knobs or buttons and let the oven manage the rest.
 
-- This means you shouldn't change the state *directly*. You wouldn’t manually turn the gears inside an oven to change the temperature. Instead, you use the oven's knobs or buttons. In React, you use special functions to update the state. This helps React keep track of when to update and show changes in your components.
+In React, you use special functions to update the state. This helps React track when to update and show changes in your components.
 
-### Keep things predictable
+Because we don't change state directly, it's easier to predict how your components will behave. Directly changing the state for a component would result in behavior like an oven display showing 425 degrees when the actual temperature is different. This can cause confusion and bugs in your UI.
 
-- Because state doesn't change directly, it's easier to predict how your components will behave. Directly changing the state for a component is like an oven display showing 425 degrees when the actual temperature is different. This can cause confusion and bugs in your UI.
-
-Simply said ***never directly alter the state object*** of a component.
+Simply put, ***never directly alter the state*** of a component.
 
 ## Legacy State
 
-In React's evolution, the way we manage state has changed. Originally, state was handled with class-based components. Now, we use a simpler, more efficient method called hooks. Hooks are special functions that let you 'hook into' React features, like state management, in components. As a beginner, focus on learning hooks for state management, since they're the current standard. While you might still see class-based examples online, always refer to hooks-based approaches for managing state in your projects.
+the way we manage state has changed as React itself has evolved. Originally, state was handled with class-based components. Now, we use a more straightforward and efficient method called hooks inside of function-based components.
+
+Hooks are special functions that let you hook into React features like state management in components. As a beginner, focus on learning hooks, since they're the current standard. While you might still see class-based examples online, always refer to hooks-based approaches for managing state in your work.

@@ -24,9 +24,9 @@ As code, state is an object that reflects the current attributes or conditions o
 
 ## Level Up content
 
-| Lesson | Video Time | Video | Skills |
-| ------ | :--------: | :---: | ------ |
-| [Refactoring state](./refactoring-state/README.md) | -- | -- | Refactor a React component's state to handle multiple modes |
+| Lesson | Video Time | Video Link | Skills |
+| ------ | :--------: | :--------: | ------ |
+| [Refactoring state](./refactoring-state/README.md) | -- | -- | Refactor a React component's state to handle multiple modes. |
 
 ## References
 

@@ -53,7 +53,7 @@ In a more practical application, this data might come from a form input where us
 
 Here's how it works: Upon clicking the button, `addCat()` is called with a predefined cat object. Inside `addCat()`, we use the spread operator `...` to create a new array containing all the existing cats and the new one.
 
-This method ensures we're ***not modifying the original state directly*** but creating a new updated version of it, which is a key practice in state management in React. This ensures smooth and predictable state updates.
+This method ensures we're ***not modifying the original state directly*** but creating a brand new version of it shaped exactly how we want. This is a key practice in state management in React, which ensures smooth and predictable state updates.
 
 ```js
   const addCat = (newCat) => {

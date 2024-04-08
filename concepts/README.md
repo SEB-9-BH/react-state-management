@@ -2,7 +2,7 @@
 
 **Learning objective:** By the end of this lesson, students will be able to describe the concept of state in React and how it determines behavior, appearance, and the rendering and re-rendering of components.
 
-tktk Hunter, I think there are some good opportunity in this lecture for an asset or two if you have any ideas of something simple and quick after reading through this.
+tktk Hunter, I think there are some good opportunity in this lecture for an asset or two if you have any ideas of something simple and quick you can bring over from the concepts deck.
 
 ## React state
 

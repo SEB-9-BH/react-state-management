@@ -20,7 +20,7 @@ By interacting with these controls, users can alter the state of the oven.
 
 ![Table 2](./assets/table-two.png)
 
-Imagine you were backing a cake. As part of this process, you would interact with the oven in very specific ways, such as:
+Imagine you were baking a cake. As part of this process, you would interact with the oven in very specific ways, such as:
 
 - Setting the temperature to 350 degrees.
 - Setting the timer to 30 minutes.
@@ -30,7 +30,9 @@ In each instance, the user modifies a setting, and the oven adapts to these chan
 
 ![Interaction](./assets/click.png)
 
-Much like operating an oven, interacting with a web application involves specific user actions that trigger state changes in its components. For example, clicking a button might change a component's state from 'inactive' to 'active'.
+Much like operating an oven, interacting with a web application typically involves specific user actions that trigger state changes in its components. For example, clicking a button might change a component's state to hide or show a form.
+
+State changes don't have to be triggered by a user though - think back to the timer on the oven - the state of the oven is changing as the timer is counting down. This happens indirectly after the user starts the timer.
 
 Each React component, like an individual appliance, has a distinct function and maintains its own state, separate from other components.
 

@@ -114,11 +114,7 @@ If we recheck our console, we can see that the state value is `false`. This is t
 
 We can now see the complete syntax for using the `useState()` hook:
 
-tktk Hunter, could you make a syntax asset with this:
-
-```jsx
-const [stateVariable, setStateVariable] = useState(initialState)
-```
+![Syntax for the `useState()` hook](./assets/syntax.png)
 
 1. The current state.
 2. The setter function is called to manipulate the state variable.

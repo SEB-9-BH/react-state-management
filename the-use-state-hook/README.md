@@ -27,7 +27,15 @@ import { useState } from 'react';
 
 Next, we'll construct the state variable. We will name our state variable `isDarkMode` and our function to set state `setIsDarkMode`.
 
-> ♻️ Repeatable pattern: While you can technically name these anything you want, convention dictates that you name your state variable `stateVariable` and your state setter function `setStateVariable`. What we name the state variable is up to us but it should reflect the data being stored and updated. In this case, `isDarkMode` is our state variable that holds the current state (like whether dark mode is on or off), and `setIsDarkMode` is a function that lets us change or *set* this state.
+> ♻️ Repeatable pattern: While you can technically name these anything you want, convention dictates that you name your state variable `stateVariable` and your state setter function `setStateVariable`. What we name the state variable is up to us, but it should reflect the data being stored and updated. In this case, `isDarkMode` is our state variable that holds the current state (like whether dark mode is on or off), and `setIsDarkMode` is a function that lets us change or ***set*** this state.
+>
+> Using `set` as a prefix is a widely adopted convention in programming. It indicates that this function sets or updates a variable.
+
+This boolean state variable will manage the visibility of the dark mode. State variables that are intended to hold a boolean value, like a switch that can be either on or off, will typically begin with `is`, `has`, `can`, or other prefixes that imply a boolean value or state condition. This is a common naming convention that helps to clearly indicate the purpose and type of a variable, making your code more readable and understandable for other developers.
+
+These variables often control elements that users interact with. We've followed that convention here with `isDarkMode`.
+
+When planning your state, always consider the dynamic nature of your components. Here, we have a binary toggle - dark mode can be either on or off, so a boolean works well.
 
 ```jsx
 // src/App.jsx
@@ -250,18 +258,6 @@ const [books, setBooks] = useState([
 ```
 
 > 💡 Notice that all of these data types could be passed in as the initial value of `useState()`.
-
-### Dynamic state variables for user interactions
-
-In React, some state variables are meant to change frequently and are named accordingly. These variables often control elements that users interact with, such as toggles or modals. For example, a boolean state variable can manage the visibility of features like our dark mode toggle or a modal dialog.
-
-```jsx
-const [isModalOpen, setIsModalOpen] = useState(false);
-```
-
-These state variables typically begin with 'is', 'has', 'can', or other prefixes that imply a boolean value or state condition. The corresponding setter function starts with 'set' followed by the state variable's name. Using 'set' as a prefix is a widely adopted convention in programming, indicating that this function is used to set or update a variable.
-
-Always think about the dynamic nature of your components when planning your state.
 
 ## 🎓 You Do
 

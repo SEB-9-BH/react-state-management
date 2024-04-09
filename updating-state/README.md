@@ -28,9 +28,31 @@ tktk Hunter I think an asset would really help here, something kinda like the be
 
 ![tktk state changing](./assets/state-change-tktk.png)
 
-> 🧠 Any changes you make to state will not be immediate. Instead, they take effect at the beginning of the next render of the component.
+> 🧠 While all of this happens very quickly, it is ***not instantaneous***. It takes time for the setter function to do its work and actually change the state. Your changes will not take effect until the component is re-rendered.
 >
-> The good news is that React automatically handles this. After a setter function like `setIsDarkMode()` runs, React queues up a re-render, so your UI reflects the changes that have occrred in state changes are reflected in the UI.
+> The good news is that React takes care of this for you. After a setter function like `setIsDarkMode()` runs, React queues up a re-render, ensuring your UI mirrors the state changes without you having to intervene.
+
+This behavior can be a potential pitfall as you learn to manage state. Since React does its best to remove the complexity of state changes, the rules aren't as visible, but they're still there. A good example of this is that you can't expect to be able to use the updated value of a state variable in a handler function. Take this code for example:
+
+```jsx
+  const handleMode = (event) => {
+    if (event.target.id === 'dark') {
+      setIsDarkMode(true);
+    } else if (event.target.id === 'light') {
+      setIsDarkMode(false);
+    }
+    console.log(isDarkMode) 
+    // prints the value of isDarkMode before handleMode is called.
+  };
+```
+
+As you work with state more, these quirks and complexities will become more natural, but it's not uncommon to stumble a little along the way. The React docs have three excellent pages on the rules of working with state that you should refer back to when you need to dive deeper into those complexities to solve a problem:
+
+- [Render and Commit](https://react.dev/learn/render-and-commit)
+- [State as a Snapshot](https://react.dev/learn/state-as-a-snapshot)
+- [Queueing a Series of State Updates](https://react.dev/learn/queueing-a-series-of-state-updates)
+
+## State is immutable
 
 Recall that state in React is immutable and should never be changed directly. An example of attempting to mutate state directly might look something like this:
 

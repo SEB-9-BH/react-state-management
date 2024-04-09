@@ -30,7 +30,7 @@ By interacting with these controls, users can alter the state of the oven.
 | The user toggles the light switch. | The oven light turns on or off.                                                      |
 | The user sets the timer.           | The timer is set and starts to count down. When the timer runs out, an alarm sounds. |
 
-Imagine you were backing a cake. As part of this process, you would interact with the oven in very specific ways, such as:
+Imagine you were baking a cake. As part of this process, you would interact with the oven in very specific ways, such as:
 
 - Setting the temperature to 350 degrees.
 - Setting the timer to 30 minutes.

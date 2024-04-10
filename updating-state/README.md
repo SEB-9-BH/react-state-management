@@ -24,12 +24,10 @@ Conversely, clicking the **Light Mode** button with `id='light'` calls the `setI
 
 When state changes, the component (and its UI) in which that state changed is discarded, along with all of its children. All information not held in state (or by other hooks) is discarded. The component is re-rendered. Data derived from state is recomputed. The UI for the component (and its children) is refreshed, reflecting the changes that have been made to state.
 
-tktk Hunter I think an asset would really help here, something kinda like the below, but maybe with an intermediary step where the old UI is discarded? Not sure.
-
-![tktk state changing](./assets/state-change-tktk.png)
+![React re-render](./assets/flow-chart.png)
 
 > 🧠 While all of this happens very quickly, it is ***not instantaneous***. It takes time for the setter function to do its work and actually change the state. Your changes will not take effect until the component is re-rendered.
->
+
 > The good news is that React takes care of this for you. After a setter function like `setIsDarkMode()` runs, React queues up a re-render, ensuring your UI mirrors the state changes without you having to intervene.
 
 This behavior can be a potential pitfall as you learn to manage state. Since React does its best to remove the complexity of state changes, the rules aren't as visible, but they're still there. A good example of this is that you can't expect to be able to use the updated value of a state variable in a handler function. Take this code for example:
@@ -71,7 +69,7 @@ React only knows to re-render after a setter function is called. When state is d
 
 ## Using state
 
-tktk Hunter, Could you add a CHD of state changing here? We'll probably need to talk though how this looks, since whe haven't had to show state changes yet.
+![State change](./assets/state-change.png)
 
 After updating our handler function, we should now be able to use our buttons to change the state of our application from 'light' to 'dark' mode.
 

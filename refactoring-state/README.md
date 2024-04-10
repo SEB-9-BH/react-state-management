@@ -1,7 +1,5 @@
 # ![React State Management - Refactoring State](./assets/hero.png)
 
-tktk Hunter, could you fix this hero too?
-
 **Learning objective:** By the end of this lesson, students will be able to refactor a React component's state to handle multiple modes using a string-based state variable.
 
 ## Flexible state management

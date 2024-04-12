@@ -13,8 +13,8 @@ As code, state is an object that reflects the current attributes or conditions o
 
 ## Content
 
-| Lesson | Video Time | Video Link | Skills |
-| ------ | :--------: | :--------: | ------ |
+| Lesson | Video Time | Video | Skills |
+| ------ | :--------: | :---: | ------ |
 | [Setup](./setup/README.md)                                   | -- | -- | Setting up the development environment.                                                         |
 | [Concepts](./concepts/README.md)                             | -- | -- | Describe the concept of state in React.                                                         |
 | [The `useState()` Hook](./the-use-state-hook/README.md)      | -- | -- | Use the `useState()` hook to create stateful components.                                        |

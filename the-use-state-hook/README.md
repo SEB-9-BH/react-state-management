@@ -92,8 +92,6 @@ Then navigate to <http://localhost:5173/> and open the console pane in your DevT
 
 This is because we have not assigned an initial state value!
 
-tktk Hunter, Could you add a CHD here, showing `isDarkMode` as `undefined`?
-
 We'll begin with the state set to `false` for our dark mode toggle. This means that the app will start in light mode by default.
 
 To give our state an initial value, we need to provide that value as an argument when calling the `useState()` hook.
@@ -120,17 +118,11 @@ export default App;
 
 If we recheck our console, we can see that the state value is `false`. This is the initial state value assigned to `isDarkMode`. If you change the initial state value to `true` and recheck the console, you will see that the state value is now `true`.
 
-tktk Hunter, Could you add a CHD here, showing `isDarkMode` as `false`?
-
 ## `useState()` syntax
 
 We can now see the complete syntax for using the `useState()` hook:
 
-tktk Hunter, could you make a syntax asset with this:
-
-```jsx
-const [stateVariable, setStateVariable] = useState(initialState)
-```
+![Syntax for the `useState()` hook](./assets/syntax.png)
 
 1. The current state.
 2. The setter function is called to manipulate the state variable.

@@ -1,7 +1,5 @@
 # ![React State Management - Updating Complex State](./assets/hero.png)
 
-tktk Hunter, could you fix this hero?
-
 **Learning objective:** By the end of this lesson, students will be able to update arrays in the state while maintaining immutability using the `useState()` hook
 
 ## Working with arrays in state

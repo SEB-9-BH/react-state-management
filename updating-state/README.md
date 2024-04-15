@@ -6,41 +6,42 @@
 
 In the last lesson, we created two buttons and attached `onClick` event handlers to them. This allowed us to show a message in the console indicating we toggled between the light and dark modes. However, we didn't actually change the state of our component. Let's do that now!
 
-Adjust the `handleMode()` function to finally make use of the setter function `setIsDarkMode`:
+Adjust the hander functions to finally make use of the setter function `setIsDarkMode`:
 
 ```jsx
-  const handleMode = (event) => {
-    if (event.target.id === 'dark') {
-      setIsDarkMode(true);
-    } else if (event.target.id === 'light') {
-      setIsDarkMode(false);
-    }
+  const handleDarkMode = () => {
+    console.log('Dark Mode!');
+    setIsDarkMode(true);
+  };
+
+  const handleLightMode = () => {
+    console.log('Light Mode!');
+    setIsDarkMode(false);
   };
 ```
 
-When the user clicks the **Dark Mode** button with `id='dark'`, the setter function `setIsDarkMode(true)` is called, changing the `class` on the first `<div>` to `dark`.
+When the user clicks the **Dark Mode** button, the setter function `setIsDarkMode(true)` is called, changing the `class` on the first `<div>` to `dark`.
 
-Conversely, clicking the **Light Mode** button with `id='light'` calls the `setIsDarkMode(false)` setter function. This will change the `class` on the first `<div>` to `light`.
+Conversely, clicking the **Light Mode** button, the setter function `setIsDarkMode(false)` is called. This will change the `class` on the first `<div>` to `light`.
 
-When state changes, the component (and its UI) in which that state changed is discarded, along with all of its children. All information not held in state (or by other hooks) is discarded. The component is re-rendered. Data derived from state is recomputed. The UI for the component (and its children) is refreshed, reflecting the changes that have been made to state.
+When state changes, the component (and its UI) in which that state changed is discarded, along with all of its children. All information not held in state (or by other hooks) is discarded. The new state is put into place, and data derived from state is recomputed. The UI for the component (and its children) is re-rendered, reflecting the changes that have been made to state.
 
 ![React re-render](./assets/flow-chart.png)
 
 > 🧠 While all of this happens very quickly, it is ***not instantaneous***. It takes time for the setter function to do its work and actually change the state. Your changes will not take effect until the component is re-rendered.
-
+>
 > The good news is that React takes care of this for you. After a setter function like `setIsDarkMode()` runs, React queues up a re-render, ensuring your UI mirrors the state changes without you having to intervene.
 
 This behavior can be a potential pitfall as you learn to manage state. Since React does its best to remove the complexity of state changes, the rules aren't as visible, but they're still there. A good example of this is that you can't expect to be able to use the updated value of a state variable in a handler function. Take this code for example:
 
 ```jsx
-  const handleMode = (event) => {
-    if (event.target.id === 'dark') {
-      setIsDarkMode(true);
-    } else if (event.target.id === 'light') {
-      setIsDarkMode(false);
-    }
-    console.log(isDarkMode) 
-    // prints the value of isDarkMode before handleMode is called.
+  const handleDarkMode = () => {
+    console.log('Dark Mode!');
+    setIsDarkMode(true);
+    console.log(isDarkMode);
+    // prints the value of isDarkMode before handleMode is called
+    // try clicking the Light Mode button before clicking the Dark Mode button
+    // you'll see a false value logged to the console.
   };
 ```
 
@@ -56,12 +57,9 @@ Recall that state in React is immutable and should never be changed directly. An
 
 ```jsx
 // ! Don't do this!!
-  const handleMode = (event) => {
-    if (event.target.id === "dark") {
-      isDarkMode = true;
-    } else if (event.target.id === 'light') {
-      isDarkMode = false;
-    }
+  const handleDarkMode = () => {
+    console.log('Dark Mode!');
+    isDarkMode = true;
   };
 ```
 
@@ -82,12 +80,14 @@ import './App.css';
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const handleMode = (event) => {
-    if (event.target.id === 'dark') {
-      setIsDarkMode(true);
-    } else if (event.target.id === 'light') {
-      setIsDarkMode(false);
-    }
+  const handleDarkMode = () => {
+    console.log('Dark Mode!');
+    setIsDarkMode(true);
+  };
+
+  const handleLightMode = () => {
+    console.log('Light Mode!');
+    setIsDarkMode(false);
   };
 
   return (
@@ -96,8 +96,8 @@ const App = () => {
         <h1>Hello world!</h1>
       </div>
       <div>
-        <button id="dark" onClick={handleMode}>Dark Mode</button>
-        <button id="light" onClick={handleMode}>Light Mode</button>
+        <button onClick={handleDarkMode}>Dark Mode</button>
+        <button onClick={handleLightMode}>Light Mode</button>
       </div>
     </>
   );

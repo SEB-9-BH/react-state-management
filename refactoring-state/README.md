@@ -22,27 +22,30 @@ const App = () => {
 };
 ```
 
-## Update the `handleMode()` function
+## Consolidating the handler functions
 
-Next, we'll modify our `handleMode()` function. Instead of setting the state to `true` or `false`, it will now set the mode state to a passed in `modeValue` string:
+We can also make our code easier to manage and use a single handler function to set state. Instead of setting the state to `true` or `false`, it will now set the mode state to a passed in `modeValue` string:
 
 ```jsx
 // src/App.jsx
 
   const handleMode = (modeValue) => {
+    console.log(modeValue);
     setMode(modeValue);
   };
 ```
 
-The refactored `handleMode()` function can handle any mode string passed to it. This versatility makes it easy to add new modes without modifying the function's logic. You can call `handleMode('sepia')`, `handleMode('night')`, or any other mode string, and the function will work seamlessly.
+The refactored `handleMode()` function can handle any mode string passed to it. This versatility makes it easy to add new modes without modifying the function's logic. You can call `handleMode('light')`, `handleMode('night')`, or any other mode string, and the function will work seamlessly.
 
 As new modes are introduced, you don't need to revisit this function to make updates, making it more maintainable.
 
+With the `handleMode()` handler function in place you can now remove the `handleLightMode()` and `handleDarkMode()` functions
+
+> 💡 We could have used a single handler function when our state was a boolean value as well, we only split it up to demonstrate the simplest possible event handler syntax possible before introducing this more concise method.
+
 ### Potential pitfalls
 
-The function assumes that the passed string is a valid mode. If an invalid string is passed, it might lead to unexpected behaviors or a broken UI. For example, if `handleMode('unknown-mode')` is called, the app might apply a non-existent CSS class.
-
-While flexible, this approach can become unwieldy as the number of modes increases. If modes have distinct behaviors beyond visual changes, managing all these within a single state variable can become challenging.
+The function assumes that the passed string is a valid mode. If an invalid string is passed, it might lead to unexpected behaviors or a broken UI. For example, if `handleMode('unknown')` is called, the app might apply a non-existent CSS class.
 
 Depending on how complex this state becomes, it may be necessary to add validation logic to ensure the passed-in string has a corresponding CSS class before using it to set state.
 
@@ -63,8 +66,6 @@ To ensure that `handleMode()` is called with an argument only after the click ev
 ```
 
 Inside the anonymous function, you can then call `handleMode('dark')`. This way, the `handleMode()` function gets called with the correct parameter, but only in response to the click event.
-
-Note that we no longer give these `<button>` elements unique ids. We're not using `event.target.id` in the handler function anymore, so we no longer require those ids to implement that functionality.
 
 You can now add additional buttons that pass in their own unique theme names. Don't forget to add the new themes to your CSS file!
 

@@ -23,8 +23,14 @@ const App = () => {
 
   // placeholder function for handling mode changes
   // we'll implement the functionality in the next step
-  const handleMode = () => {
-    // TODO: implement the logic to toggle dark and light mode
+  const handleDarkMode = () => {
+    // TODO: implement the logic to handle a user clicking the dark mode button
+    console.log('Dark Mode!');
+  };
+
+  const handleLightMode = () => {
+    // TODO: implement the logic to handle a user clicking the light mode button
+    console.log('Light Mode!');
   };
 
   // add a new div with buttons inside
@@ -35,8 +41,8 @@ const App = () => {
         <h1>Hello world!</h1>
       </div>
       <div>
-        <button id="dark" onClick={handleMode}>Dark Mode</button>
-        <button id="light" onClick={handleMode}>Light Mode</button>
+        <button onClick={handleDarkMode}>Dark Mode</button>
+        <button onClick={handleLightMode}>Light Mode</button>
       </div>
     </>
   );
@@ -44,6 +50,14 @@ const App = () => {
 
 export default App;
 ```
+
+Conventionally, we attach a `handle` prefix to the name of event handler functions. Since these functions will eventually be responsible for toggling between the two modes, names like `handleDarkMode` and `handleLightMode` are fitting.
+
+When one of our buttons is clicked, we want to log a message based on which button it was – 'Dark Mode!' for the dark button and 'Light Mode!' for the light button.
+
+Test your buttons to make sure the correct mode is logged to the console. Nice job!
+
+## Don't invoke event handler functions
 
 In React, handling events in the UI looks similar to how it's done in HTML, but with a few key differences to keep in mind:
 
@@ -56,70 +70,11 @@ Instead, we only want to pass the function as a reference, and React will call t
 - ***Incorrect*** (function is invoked immediately)
 
   ```jsx
-  <button id='dark' onClick={handleMode()}>Dark Mode</button>
+  <button onClick={handleDarkMode()}>Dark Mode</button>
   ```
 
 - ***Correct*** (function is passed as a reference and will be called on click)
 
   ```jsx
-  <button id='dark' onClick={handleMode}>Dark Mode</button>
+  <button onClick={handleDarkMode}>Dark Mode</button>
   ```
-
-## Creating an event handler function
-
-Conventionally, we attach a `handle` prefix to the name of event handler functions. Since this function will eventually be responsible for toggling between the two modes, a name like `handleMode` is fitting.
-
-Let's add some logic to our event handler function:
-
-```jsx
-// src/App.jsx
-
-  const handleMode = (event) => {
-    if (event.target.id === 'dark') {
-      console.log('Dark Mode!');
-    } else if (event.target.id === 'light') {
-      console.log('Light Mode!');
-    }
-  };
-```
-
-When one of our buttons is clicked, we want to log a message based on which button it was – 'Dark Mode!' for the dark button and 'Light Mode!' for the light button. But how do we know which button was clicked? This is where the `event` object comes in.
-
-Every time a button is clicked, React automatically sends an `event` object to the handler function. This object contains information about the event, including which element was clicked. In our `handleMode()` function, we receive this event object as a parameter. By checking the `id` property of `event.target` (the clicked element), we can determine which button was clicked.
-
-Here's the interesting part: both buttons use the same `handleMode()` function for their `onClick` event. This works because, inside `handleMode()`, we use the event object to check which button was clicked and respond accordingly. So, with one function, we can handle clicks for both buttons!
-
-```jsx
-// src/App.jsx
-
-import { useState } from 'react';
-import './App.css';
-
-const App = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const handleMode = (event) => {
-    if (event.target.id === 'dark') {
-      console.log('Dark Mode!');
-    } else if (event.target.id === 'light') {
-      console.log('Light Mode!');
-    }
-  };
-
-  return (
-    <>
-      <div className={isDarkMode ? 'dark' : 'light'}>
-        <h1>Hello world!</h1>
-      </div>
-      <div>
-        <button id="dark" onClick={handleMode}>Dark Mode</button>
-        <button id="light" onClick={handleMode}>Light Mode</button>
-      </div>
-    </>
-  );
-};
-
-export default App;
-```
-
-Test your buttons to make sure the correct mode is logged to the console. Nice job!

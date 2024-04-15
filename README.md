@@ -20,8 +20,8 @@ As code, state is an object that reflects the current attributes or conditions o
 | [The `useState()` Hook](./the-use-state-hook/README.md)      | -- | -- | Use the `useState()` hook to create stateful components.                                        |
 | [Event Listener Syntax](./event-listener-syntax/README.md)   | -- | -- | Respond to events with event handler functions.                                                 |
 | [Updating State](./updating-state/README.md)                 | -- | -- | Update state using a setter function.                                                           |
-| [Updating Complex State](./updating-complex-state/README.md) | -- | -- | Update arrays in the state while maintaining immutability.                                      |
 | [Refactoring state](./refactoring-state/README.md)           | -- | -- | Refactor a React component's state to handle multiple modes, add anonymous functions to events. |
+| [Updating Complex State](./updating-complex-state/README.md) | -- | -- | Update arrays in the state while maintaining immutability.                                      |
 | Total content                                                | -- | -- |                                                                                                 |
 
 ## References

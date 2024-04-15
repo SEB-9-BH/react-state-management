@@ -69,7 +69,7 @@ React only knows to re-render after a setter function is called. When state is d
 
 ![State change](./assets/state-change.png)
 
-After updating our handler function, we should now be able to use our buttons to change the state of our application from 'light' to 'dark' mode.
+After updating our handler function, we should now be able to use our buttons to change the state of our application from light to dark mode.
 
 ```jsx
 // src/App.js

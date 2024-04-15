@@ -39,7 +39,7 @@ This behavior can be a potential pitfall as you learn to manage state. Since Rea
     console.log('Dark Mode!');
     setIsDarkMode(true);
     console.log(isDarkMode);
-    // prints the value of isDarkMode before handleMode is called
+    // prints the value of isDarkMode before handleDarkMode is called
     // try clicking the Light Mode button before clicking the Dark Mode button
     // you'll see a false value logged to the console.
   };

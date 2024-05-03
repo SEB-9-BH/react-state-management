@@ -39,9 +39,9 @@ This behavior can be a potential pitfall as you learn to manage state. Since Rea
     console.log('Dark Mode!');
     setIsDarkMode(true);
     console.log(isDarkMode);
-    // prints the value of isDarkMode before handleMode is called
-    // try clicking the Light Mode button before clicking the Dark Mode button
-    // you'll see a false value logged to the console.
+    // prints the value of isDarkMode before handleDarkMode is called
+    // try clicking the Light Mode button before clicking the Dark Mode
+    // button you'll see a false value logged to the console.
   };
 ```
 
@@ -69,7 +69,7 @@ React only knows to re-render after a setter function is called. When state is d
 
 ![State change](./assets/state-change.png)
 
-After updating our handler function, we should now be able to use our buttons to change the state of our application from 'light' to 'dark' mode.
+After updating our handler function, we should now be able to use our buttons to change the state of our application from light to dark mode.
 
 ```jsx
 // src/App.js

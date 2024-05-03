@@ -2,7 +2,7 @@
 
 ## About
 
-This module introduces the idea of _state_ in React components. State in React can be thought of as the **_present status_** of a component. It holds the answers to questions like: "has a user selected something?" or "what is the current input value of a form?"
+This module introduces the idea of *state* in React components. State in React can be thought of as the ***present status*** of a component. It holds the answers to questions like: "has a user selected something?" or "what is the current input value of a form?"
 
 As code, state is an object that reflects the current attributes or conditions of a component. We'll learn how React manages component state with the use of helpful hooks like `useState()`. This module is suitable for beginners who have worked with react components and understand basic JSX syntax.
 

@@ -15,7 +15,7 @@ As code, state is an object that reflects the current attributes or conditions o
 | [The `useState()` Hook](../the-use-state-hook/README.md)      | 16 min | [link](https://generalassembly.wistia.com/medias/k6vcan19cw) | Use the `useState()` hook to create stateful components.                                        |
 | [Event Listener Syntax](../event-listener-syntax/README.md)   |  6 min | [link](https://generalassembly.wistia.com/medias/5kfplxjj84) | Respond to events with event handler functions.                                                 |
 | [Updating State](../updating-state/README.md)                 |  6 min | [link](https://generalassembly.wistia.com/medias/wy5pgd3q3u) | Update state using a setter function.                                                           |
-| [Refactoring state](../refactoring-state/README.md)           |  7 min | [link]() | Refactor a React component's state to handle multiple modes, add anonymous functions to events. |
+| [Refactoring state](../refactoring-state/README.md)           |  7 min | [link](https://generalassembly.wistia.com/medias/sbscduh4hb) | Refactor a React component's state to handle multiple modes, add anonymous functions to events. |
 | [Updating Complex State](../updating-complex-state/README.md) |  4 min | [link](https://generalassembly.wistia.com/medias/5xl0etqxf4) | Update arrays in the state while maintaining immutability.                                      |
 | Total content                                                 | 47 min |                                                              |                                                                                                 |
 

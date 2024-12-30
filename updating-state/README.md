@@ -1,4 +1,7 @@
-# ![React State Management - Updating State](./assets/hero.png)
+<h1>
+  <span class="headline">React State Management</span>
+  <span class="subhead">Updating State</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to update state using a setter function in a React component.
 
@@ -6,7 +9,7 @@
 
 In the last lesson, we created two buttons and attached `onClick` event handlers to them. This allowed us to show a message in the console indicating we toggled between the light and dark modes. However, we didn't actually change the state of our component. Let's do that now!
 
-Adjust the hander functions to finally make use of the setter function `setIsDarkMode`:
+Adjust the handler functions to finally make use of the setter function `setIsDarkMode`:
 
 ```jsx
   const handleDarkMode = () => {

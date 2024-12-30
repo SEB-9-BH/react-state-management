@@ -1,4 +1,7 @@
-# ![React State Management - Updating Complex State](./assets/hero.png)
+<h1>
+  <span class="headline">React State Management</span>
+  <span class="subhead">Updating Complex State</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to update arrays in the state while maintaining immutability using the `useState()` hook
 
@@ -55,7 +58,7 @@ Here's how it works: Upon clicking the button, `addCat()` is called with a prede
 
 This method ensures we're ***not modifying the original state directly*** but creating a brand new version of it shaped exactly how we want. This is a key practice in state management in React, which ensures smooth and predictable state updates.
 
-```js
+```jsx
   const addCat = (newCat) => {
     // spread current cats array and newCat object into a new array
     const newCatsArray = [...cats, newCat];

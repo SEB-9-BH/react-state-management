@@ -1,4 +1,7 @@
-# ![React State Management - The useState Hook](./assets/hero.png)
+<h1>
+  <span class="headline">React State Management</span>
+  <span class="subhead">The <code>useState()</code> Hook</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to use the `useState()` hook to create stateful components.
 

@@ -1,4 +1,7 @@
-# ![React State Management - Concepts](./assets/hero.png)
+<h1>
+  <span class="headline">React State Management</span>
+  <span class="subhead">Concepts</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to describe the concept of state in React and how it determines behavior, appearance, and the rendering and re-rendering of components.
 

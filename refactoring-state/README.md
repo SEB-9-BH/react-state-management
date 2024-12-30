@@ -1,4 +1,7 @@
-# ![React State Management - Refactoring State](./assets/hero.png)
+<h1>
+  <span class="headline">React State Management</span>
+  <span class="subhead">Refactoring State</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to refactor a React component's state to handle multiple modes using a string-based state variable.
 

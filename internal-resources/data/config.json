@@ -1,0 +1,314 @@
+{
+  "org": {
+    "friendlyName": "Modular Curriculum All Courses",
+    "name": "modular-curriculum-all-courses"
+  },
+  "repo": {
+    "friendlyName": "React State Management",
+    "name": "react-state-management",
+    "type": "Lesson",
+    "about": "",
+    "starterCode": "",
+    "solutionCode": "",
+    "deployedSite": ""
+  },
+  "courses": [
+    {
+      "name": "rds",
+      "courseAcronym": "",
+      "courseFullName": "",
+      "logoUrl": "",
+      "microlessons": [
+        {
+          "friendlyName": "Setup",
+          "dirName": "setup",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "https://generalassembly.wistia.com/medias/97o6fopyj9",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Concepts",
+          "dirName": "concepts",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "https://generalassembly.wistia.com/medias/5hjwua9qod",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "The <code>useState()</code> Hook",
+          "dirName": "the-use-state-hook",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "https://generalassembly.wistia.com/medias/k6vcan19cw",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Event Listener Syntax",
+          "dirName": "event-listener-syntax",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "https://generalassembly.wistia.com/medias/5kfplxjj84",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Updating State",
+          "dirName": "updating-state",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "https://generalassembly.wistia.com/medias/wy5pgd3q3u",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Refactoring State",
+          "dirName": "refactoring-state",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "https://generalassembly.wistia.com/medias/sbscduh4hb",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Updating Complex State",
+          "dirName": "updating-complex-state",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "https://generalassembly.wistia.com/medias/5xl0etqxf4",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        }
+      ],
+      "isHeaderShown": true,
+      "isHeaderModuleNavShown": true,
+      "isHeaderHomeNavShown": true,
+      "isHeaderMicrolessonNavShown": true,
+      "isHeaderMicrolessonVideoLinkShown": true,
+      "isHeaderNavSettingsShown": true,
+      "isFooterCopyrightShown": true,
+      "isFooterLessonNavShown": true,
+      "isStickyNavSettingShown": true,
+      "isStickyNavAllowed": true,
+      "isFixedNavAllowed": true,
+      "isStickyNavDefault": true,
+      "isStickyNavForcedDefault": false,
+      "isFixedNavForcedDefault": false,
+      "isDarkModeSettingShown": true,
+      "isDarkModeAllowed": true,
+      "isLightModeAllowed": true,
+      "isLightModeDefault": true,
+      "isLightModeForcedDefault": false,
+      "isDarkModeForcedDefault": false,
+      "isActivityTimeShown": true
+    },
+    {
+      "name": "seb",
+      "courseAcronym": "",
+      "courseFullName": "",
+      "logoUrl": "",
+      "microlessons": [
+        {
+          "friendlyName": "Setup",
+          "dirName": "setup",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "https://generalassembly.wistia.com/medias/97o6fopyj9",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Concepts",
+          "dirName": "concepts",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "https://generalassembly.wistia.com/medias/5hjwua9qod",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "The <code>useState()</code> Hook",
+          "dirName": "the-use-state-hook",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "https://generalassembly.wistia.com/medias/k6vcan19cw",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Event Listener Syntax",
+          "dirName": "event-listener-syntax",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "https://generalassembly.wistia.com/medias/5kfplxjj84",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Updating State",
+          "dirName": "updating-state",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "https://generalassembly.wistia.com/medias/wy5pgd3q3u",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Refactoring State",
+          "dirName": "refactoring-state",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "https://generalassembly.wistia.com/medias/sbscduh4hb",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Updating Complex State",
+          "dirName": "updating-complex-state",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "https://generalassembly.wistia.com/medias/5xl0etqxf4",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        }
+      ],
+      "isHeaderShown": true,
+      "isHeaderModuleNavShown": true,
+      "isHeaderHomeNavShown": true,
+      "isHeaderMicrolessonNavShown": true,
+      "isHeaderMicrolessonVideoLinkShown": true,
+      "isHeaderNavSettingsShown": true,
+      "isFooterCopyrightShown": true,
+      "isFooterLessonNavShown": true,
+      "isStickyNavSettingShown": true,
+      "isStickyNavAllowed": true,
+      "isFixedNavAllowed": true,
+      "isStickyNavDefault": true,
+      "isStickyNavForcedDefault": false,
+      "isFixedNavForcedDefault": false,
+      "isDarkModeSettingShown": true,
+      "isDarkModeAllowed": true,
+      "isLightModeAllowed": true,
+      "isLightModeDefault": true,
+      "isLightModeForcedDefault": false,
+      "isDarkModeForcedDefault": false,
+      "isActivityTimeShown": true
+    },
+    {
+      "name": "fallback",
+      "courseAcronym": "",
+      "courseFullName": "",
+      "logoUrl": "",
+      "microlessons": [
+        {
+          "friendlyName": "Setup",
+          "dirName": "setup",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "https://generalassembly.wistia.com/medias/97o6fopyj9",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Concepts",
+          "dirName": "concepts",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "https://generalassembly.wistia.com/medias/5hjwua9qod",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "The <code>useState()</code> Hook",
+          "dirName": "the-use-state-hook",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "https://generalassembly.wistia.com/medias/k6vcan19cw",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Event Listener Syntax",
+          "dirName": "event-listener-syntax",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "https://generalassembly.wistia.com/medias/5kfplxjj84",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Updating State",
+          "dirName": "updating-state",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "https://generalassembly.wistia.com/medias/wy5pgd3q3u",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Refactoring State",
+          "dirName": "refactoring-state",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "https://generalassembly.wistia.com/medias/sbscduh4hb",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Updating Complex State",
+          "dirName": "updating-complex-state",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "https://generalassembly.wistia.com/medias/5xl0etqxf4",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        }
+      ],
+      "isHeaderShown": true,
+      "isHeaderModuleNavShown": true,
+      "isHeaderHomeNavShown": true,
+      "isHeaderMicrolessonNavShown": true,
+      "isHeaderMicrolessonVideoLinkShown": true,
+      "isHeaderNavSettingsShown": true,
+      "isFooterCopyrightShown": true,
+      "isFooterLessonNavShown": true,
+      "isStickyNavSettingShown": true,
+      "isStickyNavAllowed": true,
+      "isFixedNavAllowed": true,
+      "isStickyNavDefault": true,
+      "isStickyNavForcedDefault": false,
+      "isFixedNavForcedDefault": false,
+      "isDarkModeSettingShown": true,
+      "isDarkModeAllowed": true,
+      "isLightModeAllowed": true,
+      "isLightModeDefault": true,
+      "isLightModeForcedDefault": false,
+      "isDarkModeForcedDefault": false,
+      "isActivityTimeShown": true
+    }
+  ]
+}

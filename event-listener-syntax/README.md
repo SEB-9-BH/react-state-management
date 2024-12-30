@@ -1,4 +1,7 @@
-# ![React State Management - Event Listener Syntax](./assets/hero.png)
+<h1>
+  <span class="headline">React State Management</span>
+  <span class="subhead">Event Listener Syntax</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to respond to events with event handler functions.
 

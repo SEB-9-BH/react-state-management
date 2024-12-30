@@ -1,15 +1,13 @@
-# ![React State Management](./assets/hero.png)
+<h1>
+  <span class="prefix"></span>
+  <span class="headline">React State Management</span>
+</h1>
 
 ## About
 
 This module introduces the idea of *state* in React components. State in React can be thought of as the ***present status*** of a component. It holds the answers to questions like: "has a user selected something?" or "what is the current input value of a form?"
 
 As code, state is an object that reflects the current attributes or conditions of a component. We'll learn how React manages component state with the use of helpful hooks like `useState()`. This module is suitable for beginners who have worked with react components and understand basic JSX syntax.
-
-## Prerequisites
-
-- Intro to React
-- Building Your First React App
 
 ## Content
 
@@ -28,7 +26,20 @@ As code, state is an object that reflects the current attributes or conditions o
 
 📖 [Reference Materials](./references/README.md)
 
-## Internal resources
+## Internal
+
+### Prerequisites
+
+- Intro to React
+- Building Your First React App
+
+### Course landing pages
+
+- [RDS - React Development Short Course](https://pages.git.generalassemb.ly/modular-curriculum-all-courses/react-state-management/canvas-landing-pages/rds.html)
+- [SEB - Software Engineering Bootcamp](https://pages.git.generalassemb.ly/modular-curriculum-all-courses/react-state-management/canvas-landing-pages/seb.html)
+- [Fallback](https://pages.git.generalassemb.ly/modular-curriculum-all-courses/react-state-management/canvas-landing-pages/fallback.html)
+
+### Resources
 
 ✏️ [Instructor Guide](./internal-resources/instructor-guide.md)
 
@@ -38,4 +49,4 @@ As code, state is an object that reflects the current attributes or conditions o
 
 ---
 
-**Find a 👾 bug 👾 or have suggestions? [Let us know](https://git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/blob/main/module-feedback.md)!**
+**Find a 👾 bug 👾 or have suggestions? [Let us know](https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/module-feedback.html)!**

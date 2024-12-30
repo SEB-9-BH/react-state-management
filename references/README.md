@@ -1,4 +1,7 @@
-# ![React State Management - References](./assets/hero.png)
+<h1>
+  <span class="headline">React State Management</span>
+  <span class="subhead">References</span>
+</h1>
 
 ## Lesson references
 
